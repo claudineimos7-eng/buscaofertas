@@ -1,8 +1,8 @@
-// api/ml.js — Proxy Mercado Livre com headers de browser
+// api/ml.js — Proxy ML com múltiplas estratégias
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600');
+  res.setHeader('Cache-Control', 's-maxage=180, stale-while-revalidate=300');
   if (req.method === 'OPTIONS') { res.status(200).end(); return; }
 
   const { endpoint, ...params } = req.query;
@@ -14,37 +14,73 @@ export default async function handler(req, res) {
   const qs = new URLSearchParams(params).toString();
   const mlUrl = `https://api.mercadolibre.com/${endpoint}${qs ? '?' + qs : ''}`;
 
-  // Headers que imitam um browser real
-  const browserHeaders = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-    'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-    'Referer': 'https://www.mercadolivre.com.br/',
-    'Origin': 'https://www.mercadolivre.com.br',
-    'sec-ch-ua': '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Windows"',
-    'Sec-Fetch-Dest': 'empty',
-    'Sec-Fetch-Mode': 'cors',
-    'Sec-Fetch-Site': 'same-site',
-    'Connection': 'keep-alive',
-    'Cache-Control': 'no-cache',
+  // Estratégia 1: chamada direta com headers de browser
+  const tryDirect = async () => {
+    const r = await fetch(mlUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'pt-BR,pt;q=0.9',
+        'Referer': 'https://www.mercadolivre.com.br/',
+        'Origin': 'https://www.mercadolivre.com.br',
+      },
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
   };
 
-  try {
-    const mlRes = await fetch(mlUrl, {
-      headers: browserHeaders,
-      signal: AbortSignal.timeout(12000),
+  // Estratégia 2: via corsproxy.io (servidor a servidor, sem CORS)
+  const tryCorsproxy = async () => {
+    const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(mlUrl), {
+      headers: { 'User-Agent': 'Mozilla/5.0' },
+      signal: AbortSignal.timeout(10000),
     });
+    if (!r.ok) throw new Error('corsproxy HTTP ' + r.status);
+    return r.json();
+  };
 
-    const text = await mlRes.text();
-    let data;
-    try { data = JSON.parse(text); } 
-    catch { return res.status(502).json({ error: 'Resposta invalida ML', raw: text.slice(0,200) }); }
+  // Estratégia 3: via allorigins
+  const tryAllorigins = async () => {
+    const r = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(mlUrl), {
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!r.ok) throw new Error('allorigins HTTP ' + r.status);
+    const wrap = await r.json();
+    if (!wrap.contents) throw new Error('allorigins sem conteudo');
+    return JSON.parse(wrap.contents);
+  };
 
-    return res.status(mlRes.status).json(data);
-  } catch (err) {
-    return res.status(502).json({ error: 'Falha proxy ML', detail: err.message, url: mlUrl });
+  // Estratégia 4: via thingproxy
+  const tryThingproxy = async () => {
+    const r = await fetch('https://thingproxy.freeboard.io/fetch/' + mlUrl, {
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!r.ok) throw new Error('thingproxy HTTP ' + r.status);
+    return r.json();
+  };
+
+  const strategies = [
+    { name: 'direct', fn: tryDirect },
+    { name: 'corsproxy', fn: tryCorsproxy },
+    { name: 'allorigins', fn: tryAllorigins },
+    { name: 'thingproxy', fn: tryThingproxy },
+  ];
+
+  const errors = [];
+  for (const s of strategies) {
+    try {
+      const data = await s.fn();
+      res.setHeader('X-Proxy-Strategy', s.name);
+      return res.status(200).json(data);
+    } catch (e) {
+      errors.push(s.name + ': ' + e.message);
+    }
   }
+
+  return res.status(502).json({
+    error: 'Todas as estrategias falharam',
+    details: errors,
+    url: mlUrl,
+  });
 }
