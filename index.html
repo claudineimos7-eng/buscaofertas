@@ -1143,7 +1143,7 @@ async function runRobotNow(){
     addRobotLog('Usando '+keywords.length+' tendencias ja carregadas','ok');
   }
 
-  // 2. Buscar produtos via /api/ml proxy (servidor com token)
+  // 2. Buscar produtos — chamada DIRETA do browser (sem proxy, sem token)
   const toAdd = keywords.slice(0, qty);
   addRobotLog('Keywords: '+toAdd.join(' | '),'ok');
 
@@ -1152,11 +1152,15 @@ async function runRobotNow(){
 
   for(const kw of toAdd){
     try{
-      const proxyUrl = '/api/ml?endpoint=sites%2FMLB%2Fsearch&q='+encodeURIComponent(kw)+'&limit=5';
-      const resp = await fetch(proxyUrl, {signal: AbortSignal.timeout(20000)});
-      if(!resp.ok) throw new Error('HTTP '+resp.status+' (/api/ml)');
+      // Chamada direta ao ML — funciona do browser brasileiro sem autenticacao
+      const mlSearchUrl = 'https://api.mercadolibre.com/sites/MLB/search?q='+encodeURIComponent(kw)+'&limit=5&sort=relevance';
+      const resp = await fetch(mlSearchUrl, {
+        headers: { 'Accept': 'application/json' },
+        signal: AbortSignal.timeout(15000)
+      });
+      if(!resp.ok) throw new Error('HTTP '+resp.status);
       const data = await resp.json();
-      if(data && data.error) throw new Error(data.dica || data.error);
+      if(data && data.error) throw new Error(data.message || data.error);
       const results = (data.results||[]).filter(r=>r.price>0);
       if(!results.length){ errors++; addRobotLog('Sem produto: "'+kw+'"','warn'); continue; }
 
@@ -1177,7 +1181,7 @@ async function runRobotNow(){
       existingNames.add(r.title.toLowerCase());
       added++;
       addRobotLog('OK: '+r.title.substring(0,52)+' | '+fBRL(r.price),'ok');
-      await new Promise(r=>setTimeout(r,1500));
+      await new Promise(r=>setTimeout(r,800));
 
     }catch(e){
       errors++;
