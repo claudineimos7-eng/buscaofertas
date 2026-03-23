@@ -1143,30 +1143,39 @@ async function runRobotNow(){
     addRobotLog('Usando '+keywords.length+' tendencias ja carregadas','ok');
   }
 
-  // 2. Buscar produtos — chamada DIRETA do browser (sem proxy, sem token)
+  // 2. Buscar produtos — browser + token Bearer do /api/token
   const toAdd = keywords.slice(0, qty);
   addRobotLog('Keywords: '+toAdd.join(' | '),'ok');
+
+  // Pega token da Vercel (servidor obtém via client_credentials)
+  let robotToken = null;
+  try {
+    const tr = await fetch('/api/token', {signal: AbortSignal.timeout(10000)});
+    const td = await tr.json();
+    robotToken = td.access_token || null;
+    addRobotLog(robotToken ? 'Token ML obtido com sucesso' : 'Sem token — buscando sem auth', robotToken ? 'ok' : 'warn');
+  } catch(te) {
+    addRobotLog('Falha ao obter token: '+te.message, 'warn');
+  }
 
   let added=0, skipped=0, errors=0;
   const existingNames = new Set(products.map(p=>p.name.toLowerCase()));
 
   for(const kw of toAdd){
     try{
-      // Chamada direta ao ML — funciona do browser brasileiro sem autenticacao
-      const mlSearchUrl = 'https://api.mercadolibre.com/sites/MLB/search?q='+encodeURIComponent(kw)+'&limit=5&sort=relevance';
-      const resp = await fetch(mlSearchUrl, {
-        headers: { 'Accept': 'application/json' },
-        signal: AbortSignal.timeout(15000)
-      });
+      const mlUrl = 'https://api.mercadolibre.com/sites/MLB/search?q='+encodeURIComponent(kw)+'&limit=5';
+      const headers = {'Accept':'application/json'};
+      if(robotToken) headers['Authorization'] = 'Bearer '+robotToken;
+      const resp = await fetch(mlUrl, {headers, signal: AbortSignal.timeout(15000)});
       if(!resp.ok) throw new Error('HTTP '+resp.status);
       const data = await resp.json();
       if(data && data.error) throw new Error(data.message || data.error);
       const results = (data.results||[]).filter(r=>r.price>0);
-      if(!results.length){ errors++; addRobotLog('Sem produto: "'+kw+'"','warn'); continue; }
+      if(!results.length){ errors++; addRobotLog('Sem resultado: "'+kw+'"','warn'); continue; }
 
       const r = results[0];
       if(skipDup && existingNames.has(r.title.toLowerCase())){
-        skipped++; addRobotLog('Duplicado: "'+r.title.substring(0,42)+'..."','warn'); continue;
+        skipped++; addRobotLog('Duplicado: "'+r.title.substring(0,40)+'"','warn'); continue;
       }
 
       products.unshift({
@@ -1180,7 +1189,7 @@ async function runRobotNow(){
       });
       existingNames.add(r.title.toLowerCase());
       added++;
-      addRobotLog('OK: '+r.title.substring(0,52)+' | '+fBRL(r.price),'ok');
+      addRobotLog('OK: '+r.title.substring(0,50)+' | '+fBRL(r.price),'ok');
       await new Promise(r=>setTimeout(r,800));
 
     }catch(e){
