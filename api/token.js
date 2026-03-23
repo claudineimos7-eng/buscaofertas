@@ -1,36 +1,35 @@
-// api/token.js — Retorna o App Token do ML para o browser
+export const config = { runtime: 'edge' };
+
 let _token = null;
 let _tokenExpiry = 0;
 
-export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  if (req.method === 'OPTIONS') { res.status(200).end(); return; }
+export default async function handler(req) {
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
+  };
+  if (req.method === 'OPTIONS') return new Response(null, { status: 200, headers });
 
   if (_token && Date.now() < _tokenExpiry) {
-    return res.status(200).json({ access_token: _token });
+    return new Response(JSON.stringify({ access_token: _token }), { headers });
   }
 
-  const appId     = process.env.ML_APP_ID;
-  const appSecret = process.env.ML_APP_SECRET;
-
-  if (!appId || !appSecret) {
-    return res.status(200).json({ access_token: null });
-  }
+  const id  = process.env.ML_APP_ID;
+  const sec = process.env.ML_APP_SECRET;
+  if (!id || !sec) return new Response(JSON.stringify({ access_token: null }), { headers });
 
   try {
     const r = await fetch('https://api.mercadolibre.com/oauth/token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `grant_type=client_credentials&client_id=${appId}&client_secret=${appSecret}`,
-      signal: AbortSignal.timeout(8000),
+      body: `grant_type=client_credentials&client_id=${id}&client_secret=${sec}`,
     });
-    const data = await r.json();
-    if (!data.access_token) throw new Error('sem token');
-    _token = data.access_token;
-    _tokenExpiry = Date.now() + Math.max(0, (data.expires_in || 21600) - 300) * 1000;
-    return res.status(200).json({ access_token: _token });
+    const d = await r.json();
+    if (!d.access_token) throw new Error('no token');
+    _token = d.access_token;
+    _tokenExpiry = Date.now() + ((d.expires_in || 21600) - 300) * 1000;
+    return new Response(JSON.stringify({ access_token: _token }), { headers });
   } catch(e) {
-    return res.status(200).json({ access_token: null, error: e.message });
+    return new Response(JSON.stringify({ access_token: null, error: e.message }), { headers });
   }
 }
