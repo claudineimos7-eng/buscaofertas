@@ -1143,7 +1143,7 @@ async function runRobotNow(){
     addRobotLog('Usando '+keywords.length+' tendencias ja carregadas','ok');
   }
 
-  // 2. Buscar produtos — endpoint publico de search (nao precisa de OAuth)
+  // 2. Buscar produtos via /api/ml proxy (servidor com token)
   const toAdd = keywords.slice(0, qty);
   addRobotLog('Keywords: '+toAdd.join(' | '),'ok');
 
@@ -1152,9 +1152,11 @@ async function runRobotNow(){
 
   for(const kw of toAdd){
     try{
-      const data = await fetchML(
-        'https://api.mercadolibre.com/sites/MLB/search?q='+encodeURIComponent(kw)+'&limit=5'
-      );
+      const proxyUrl = '/api/ml?endpoint=sites%2FMLB%2Fsearch&q='+encodeURIComponent(kw)+'&limit=5';
+      const resp = await fetch(proxyUrl, {signal: AbortSignal.timeout(20000)});
+      if(!resp.ok) throw new Error('HTTP '+resp.status+' (/api/ml)');
+      const data = await resp.json();
+      if(data && data.error) throw new Error(data.dica || data.error);
       const results = (data.results||[]).filter(r=>r.price>0);
       if(!results.length){ errors++; addRobotLog('Sem produto: "'+kw+'"','warn'); continue; }
 
@@ -1175,7 +1177,7 @@ async function runRobotNow(){
       existingNames.add(r.title.toLowerCase());
       added++;
       addRobotLog('OK: '+r.title.substring(0,52)+' | '+fBRL(r.price),'ok');
-      await new Promise(r=>setTimeout(r,2000));
+      await new Promise(r=>setTimeout(r,1500));
 
     }catch(e){
       errors++;
