@@ -1143,9 +1143,11 @@ async function runRobotNow(){
     addRobotLog('Usando '+keywords.length+' tendencias ja carregadas','ok');
   }
 
-  // 2. Buscar produtos — fetch simples sem headers (API publica ML aceita de browsers)
+  // 2. Buscar produtos com app_id na URL (exigido pelo ML sem OAuth)
   const toAdd = keywords.slice(0, qty);
   addRobotLog('Buscando '+toAdd.length+' produtos...','ok');
+
+  const APP_ID = '1224179727396628';
 
   let added=0, skipped=0, errors=0;
   const existingNames = new Set(products.map(p=>p.name.toLowerCase()));
@@ -1153,7 +1155,7 @@ async function runRobotNow(){
   for(const kw of toAdd){
     try{
       const resp = await fetch(
-        'https://api.mercadolibre.com/sites/MLB/search?q='+encodeURIComponent(kw)+'&limit=5',
+        'https://api.mercadolibre.com/sites/MLB/search?q='+encodeURIComponent(kw)+'&limit=5&app_id='+APP_ID,
         { signal: AbortSignal.timeout(15000) }
       );
       if(!resp.ok) throw new Error('HTTP '+resp.status);
