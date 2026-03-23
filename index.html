@@ -1069,47 +1069,51 @@ async function getMLToken(){
   return _mlToken;
 }
 async function fetchML(url){
-  // Tenta 1: direto com token Bearer
-  const token = await getMLToken();
-  const headers = { 'Accept': 'application/json', 'Accept-Language': 'pt-BR,pt;q=0.9' };
-  if(token) headers['Authorization'] = 'Bearer ' + token;
+  // Estrategia 1: chamada direta simples (browser brasileiro, sem headers extras)
   try {
-    const r = await fetch(url, { headers, signal: AbortSignal.timeout(10000) });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const data = await r.json();
-    if(data && (data.error==='forbidden'||data.message==='forbidden')) throw new Error('forbidden');
-    if(data && data.error && !data.results && !Array.isArray(data)) throw new Error(data.message||data.error);
-    return data;
+    const r = await fetch(url, {signal: AbortSignal.timeout(12000)});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d = await r.json();
+    if(d&&(d.error==='forbidden'||d.message==='forbidden')) throw new Error('forbidden');
+    if(d&&d.error&&!d.results&&!Array.isArray(d)) throw new Error(d.message||d.error);
+    return d;
   } catch(e1) {}
 
-  // Tenta 2: direto sem token (CORS publico ML)
+  // Estrategia 2: com Bearer token
   try {
-    const r = await fetch(url, { headers: {'Accept':'application/json'}, signal: AbortSignal.timeout(10000) });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const data = await r.json();
-    if(data && (data.error==='forbidden'||data.message==='forbidden')) throw new Error('forbidden');
-    if(data && data.error && !data.results && !Array.isArray(data)) throw new Error(data.message||data.error);
-    return data;
+    const token = await getMLToken();
+    const h = {'Accept':'application/json'};
+    if(token) h['Authorization']='Bearer '+token;
+    const r = await fetch(url, {headers:h, signal: AbortSignal.timeout(12000)});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d = await r.json();
+    if(d&&(d.error==='forbidden'||d.message==='forbidden')) throw new Error('forbidden');
+    if(d&&d.error&&!d.results&&!Array.isArray(d)) throw new Error(d.message||d.error);
+    return d;
   } catch(e2) {}
 
-  // Tenta 3: via proxy proprio /api/ml
+  // Estrategia 3: proxy proprio /api/ml (servidor + token)
   try {
     const proxied = mlUrlToProxy(url);
-    const r = await fetch(proxied, { signal: AbortSignal.timeout(15000) });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const data = await r.json();
-    if(data && data.error && !data.results && !Array.isArray(data)) throw new Error(data.message||data.error);
-    return data;
+    const r = await fetch(proxied, {signal: AbortSignal.timeout(15000)});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d = await r.json();
+    if(d&&d.error&&!d.results&&!Array.isArray(d)) throw new Error(d.message||d.error);
+    return d;
   } catch(e3) {}
 
-  // Tenta 4: allorigins
-  const r4 = await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(url), {signal: AbortSignal.timeout(15000)});
-  if(!r4.ok) throw new Error('HTTP '+r4.status+' (allorigins)');
-  const w = await r4.json();
-  if(!w.contents) throw new Error('allorigins vazio');
-  const data4 = JSON.parse(w.contents);
-  if(data4 && data4.error && !data4.results && !Array.isArray(data4)) throw new Error(data4.message||data4.error);
-  return data4;
+  // Estrategia 4: allorigins
+  try {
+    const r = await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(url),{signal:AbortSignal.timeout(15000)});
+    if(!r.ok) throw new Error('allorigins HTTP '+r.status);
+    const w = await r.json();
+    if(!w.contents) throw new Error('allorigins vazio');
+    const d = JSON.parse(w.contents);
+    if(d&&d.error&&!d.results&&!Array.isArray(d)) throw new Error(d.message||d.error);
+    return d;
+  } catch(e4) {
+    throw new Error('Todas estrategias falharam: '+e4.message);
+  }
 }
 
 async function runRobotNow(){
@@ -1171,7 +1175,7 @@ async function runRobotNow(){
       existingNames.add(r.title.toLowerCase());
       added++;
       addRobotLog('OK: '+r.title.substring(0,52)+' | '+fBRL(r.price),'ok');
-      await new Promise(r=>setTimeout(r,700));
+      await new Promise(r=>setTimeout(r,2000));
 
     }catch(e){
       errors++;
