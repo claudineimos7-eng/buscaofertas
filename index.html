@@ -1143,30 +1143,19 @@ async function runRobotNow(){
     addRobotLog('Usando '+keywords.length+' tendencias ja carregadas','ok');
   }
 
-  // 2. Buscar produtos — browser + token Bearer do /api/token
+  // 2. Buscar produtos — fetch simples sem headers (API publica ML aceita de browsers)
   const toAdd = keywords.slice(0, qty);
-  addRobotLog('Keywords: '+toAdd.join(' | '),'ok');
-
-  // Pega token da Vercel (servidor obtém via client_credentials)
-  let robotToken = null;
-  try {
-    const tr = await fetch('/api/token', {signal: AbortSignal.timeout(10000)});
-    const td = await tr.json();
-    robotToken = td.access_token || null;
-    addRobotLog(robotToken ? 'Token ML obtido com sucesso' : 'Sem token — buscando sem auth', robotToken ? 'ok' : 'warn');
-  } catch(te) {
-    addRobotLog('Falha ao obter token: '+te.message, 'warn');
-  }
+  addRobotLog('Buscando '+toAdd.length+' produtos...','ok');
 
   let added=0, skipped=0, errors=0;
   const existingNames = new Set(products.map(p=>p.name.toLowerCase()));
 
   for(const kw of toAdd){
     try{
-      const mlUrl = 'https://api.mercadolibre.com/sites/MLB/search?q='+encodeURIComponent(kw)+'&limit=5';
-      const headers = {'Accept':'application/json'};
-      if(robotToken) headers['Authorization'] = 'Bearer '+robotToken;
-      const resp = await fetch(mlUrl, {headers, signal: AbortSignal.timeout(15000)});
+      const resp = await fetch(
+        'https://api.mercadolibre.com/sites/MLB/search?q='+encodeURIComponent(kw)+'&limit=5',
+        { signal: AbortSignal.timeout(15000) }
+      );
       if(!resp.ok) throw new Error('HTTP '+resp.status);
       const data = await resp.json();
       if(data && data.error) throw new Error(data.message || data.error);
@@ -1190,14 +1179,13 @@ async function runRobotNow(){
       existingNames.add(r.title.toLowerCase());
       added++;
       addRobotLog('OK: '+r.title.substring(0,50)+' | '+fBRL(r.price),'ok');
-      await new Promise(r=>setTimeout(r,800));
+      await new Promise(r=>setTimeout(r,500));
 
     }catch(e){
       errors++;
       addRobotLog('Erro "'+kw+'": '+e.message,'err');
     }
   }
-
   localStorage.setItem('bo_products', JSON.stringify(products));
   renderProducts();
   setRobotStatus(robotRunning, false);
