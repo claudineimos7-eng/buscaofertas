@@ -1080,14 +1080,16 @@ async function fetchML(url){
     if (data && data.error && !data.results && !Array.isArray(data)) throw new Error(data.message || data.error);
     return data;
   } catch(e) {
-    const proxied = mlUrlToProxy(url);
-    const r2 = await fetch(proxied, { signal: AbortSignal.timeout(15000) });
-    if (!r2.ok) throw new Error('HTTP ' + r2.status);
+    // Fallback: corsproxy.io direto do browser
+    const proxy = 'https://corsproxy.io/?' + encodeURIComponent(url);
+    const r2 = await fetch(proxy, { headers: {'User-Agent':'Mozilla/5.0'}, signal: AbortSignal.timeout(15000) });
+    if (!r2.ok) throw new Error('HTTP ' + r2.status + ' (corsproxy)');
     let data = await r2.json();
     if (data && data.contents && typeof data.contents === 'string') {
-      try { data = JSON.parse(data.contents); } catch(e) {}
+      try { data = JSON.parse(data.contents); } catch(e2) {}
     }
-    if (data && data.error) throw new Error(data.message || data.error);
+    if (data && (data.error === 'forbidden' || data.message === 'forbidden')) throw new Error('forbidden');
+    if (data && data.error && !data.results && !Array.isArray(data)) throw new Error(data.message || data.error);
     return data;
   }
 }
