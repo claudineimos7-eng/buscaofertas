@@ -733,7 +733,8 @@ function clearAll(){ if(!confirm('Limpar TODOS os produtos?')) return; products=
 function clearForm(){ ['fieldName','fieldPrice','fieldOldPrice','fieldImg','fieldLink'].forEach(id=>document.getElementById(id).value=''); document.getElementById('fieldCat').value='outros'; editingId=null; }
 
 async function fetchML(url){
-  const proxied = '/api/ml?' + new URL(url).searchParams.toString() + '&endpoint=' + new URL(url).pathname.replace(/^\//,'');
+  const u = new URL(url);
+  const proxied = '/api/ml?endpoint=' + u.pathname.replace(/^\//,'') + '&' + u.searchParams.toString();
   try {
     const r = await fetch(proxied, { signal: AbortSignal.timeout(15000) });
     return await r.json();
