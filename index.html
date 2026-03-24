@@ -1117,7 +1117,10 @@ async function fetchML(url){
   }
 }
 
-async function runRobotNow(){
+const resp = await fetch(
+  `/api/ml?endpoint=sites/MLB/search&q=${encodeURIComponent(kw)}&limit=5`,
+  { signal: AbortSignal.timeout(15000) }
+);
   if(!isAdmin){ toast('Faca login primeiro.'); return; }
   setRobotStatus(robotRunning, true);
   addRobotLog('Iniciando busca automatica...', 'ok');
