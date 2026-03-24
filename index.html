@@ -56,7 +56,6 @@
   .section-btn{background:var(--card2);border:1px solid var(--border);color:var(--muted);padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;}
   .section-btn:hover{border-color:var(--accent);color:var(--accent);}
 
-  /* TENDÊNCIAS */
   .trends-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;}
   .trend-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px;}
   .trend-card:hover{border-color:var(--accent);background:var(--card2);transform:translateY(-2px);}
@@ -68,7 +67,6 @@
   .admin-mode .trend-add-btn{display:flex;}
   .pending-badge{position:absolute;top:8px;left:8px;background:rgba(255,184,48,0.15);color:var(--accent2);border:1px solid rgba(255,184,48,0.35);font-size:.68rem;font-weight:700;padding:3px 7px;border-radius:5px;letter-spacing:.3px;}
 
-  /* PRODUTOS */
   .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
   .product-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .25s;cursor:pointer;position:relative;animation:fadeUp .4s ease both;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
@@ -94,7 +92,6 @@
   .empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted);}
   .empty-state .emoji{font-size:3rem;display:block;margin-bottom:12px;}
 
-  /* OVERLAYS */
   .overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);overflow-y:auto;padding:24px;align-items:flex-start;justify-content:center;}
   .overlay.open{display:flex;}
 
@@ -104,7 +101,6 @@
   .login-box p{color:var(--muted);font-size:.85rem;margin-bottom:24px;}
   .login-error{color:#ff7c5e;font-size:.82rem;margin-bottom:12px;display:none;}
 
-  /* ADMIN BOX */
   .admin-box{background:var(--bg3);border:1px solid var(--border);border-radius:20px;width:100%;max-width:720px;padding:32px;position:relative;margin:auto;}
   .admin-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
   .admin-close{position:absolute;top:20px;right:20px;background:var(--card2);border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
@@ -116,7 +112,6 @@
   .tab-content{display:none;}
   .tab-content.active{display:block;}
 
-  /* FORMS */
   .form-group{margin-bottom:16px;}
   .form-label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:6px;font-weight:500;}
   .form-input,.form-select,.form-textarea{width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:10px 14px;font-family:inherit;font-size:.88rem;transition:border-color .2s;}
@@ -130,7 +125,6 @@
   .plat-tab.active-amazon{background:rgba(255,153,0,0.15);color:var(--amazon);}
   .plat-tab.active-shopee{background:rgba(238,77,45,0.15);color:#ff7c5e;}
 
-  /* SEARCH RESULTS */
   .search-tabs{display:flex;gap:6px;margin-bottom:16px;background:var(--card);border-radius:10px;padding:4px;}
   .search-tab-btn{flex:1;padding:8px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:600;background:none;color:var(--muted);transition:all .2s;}
   .search-tab-btn.act-ml{background:rgba(255,230,0,0.15);color:var(--ml);}
@@ -163,7 +157,6 @@
   .btn-open{background:rgba(255,107,0,0.1);border:1px solid rgba(255,107,0,0.2);color:var(--accent);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.78rem;font-family:inherit;transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block;}
   .btn-open:hover{background:rgba(255,107,0,0.2);}
 
-  /* BOTÕES GERAIS */
   .btn-save{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;width:100%;padding:12px;border-radius:10px;font-family:inherit;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;}
   .btn-save:hover{opacity:.9;transform:scale(1.01);}
   .btn-danger{background:rgba(238,77,45,0.1);color:#ff7c5e;border:1px solid rgba(238,77,45,0.25);border-radius:10px;padding:10px 18px;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;transition:all .2s;}
@@ -175,7 +168,6 @@
   .admin-actions{display:flex;gap:10px;flex-wrap:wrap;}
   .change-pw-section{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
 
-  /* ROBÔ */
   .robot-status{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px;}
   .robot-status-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
   .robot-dot{width:10px;height:10px;border-radius:50%;background:#555;flex-shrink:0;transition:all .3s;}
@@ -195,7 +187,6 @@
   .control-card select:focus,.control-card input:focus{outline:none;border-color:var(--accent);}
   .robot-btn-row{display:flex;gap:8px;flex-wrap:wrap;}
 
-  /* LEGAL */
   .legal-box{background:var(--bg3);border:1px solid var(--border);border-radius:20px;width:100%;max-width:720px;padding:36px;position:relative;margin:auto;max-height:90vh;overflow-y:auto;}
   .legal-box h2{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:6px;}
   .legal-date{color:var(--muted);font-size:.82rem;margin-bottom:28px;}
@@ -298,7 +289,6 @@
   </p>
 </footer>
 
-<!-- LOGIN -->
 <div class="overlay" id="loginOverlay">
   <div class="login-box">
     <div class="lock-icon">🔐</div>
@@ -314,7 +304,6 @@
   </div>
 </div>
 
-<!-- ADMIN -->
 <div class="overlay" id="adminOverlay">
   <div class="admin-box">
     <button class="admin-close" onclick="closeAdmin()">✕</button>
@@ -326,7 +315,6 @@
       <button class="admin-tab" onclick="switchTab('tabConfig',this)">⚙ Config</button>
     </div>
 
-    <!-- TAB: PRODUTO -->
     <div class="tab-content active" id="tabProduto">
       <div class="form-group">
         <label class="form-label">Plataforma</label>
@@ -378,7 +366,6 @@
       <button class="btn-save" id="btnSalvar" onclick="saveProduct()">✅ Salvar Produto</button>
     </div>
 
-    <!-- TAB: BUSCAR (ML + Amazon + Shopee) -->
     <div class="tab-content" id="tabBusca">
       <div class="search-tabs">
         <button class="search-tab-btn act-ml" id="stbML" onclick="switchSearchTab('ml')">🛒 ML</button>
@@ -386,7 +373,6 @@
         <button class="search-tab-btn" id="stbShopee" onclick="switchSearchTab('shopee')">🧡 Shopee</button>
       </div>
 
-      <!-- BUSCA ML -->
       <div class="search-panel active" id="spML">
         <div class="search-tip">💡 Busque no Mercado Livre, clique no resultado para preencher os campos. <strong>Substitua o link pelo seu link de afiliado antes de salvar!</strong></div>
         <div class="ml-search-box">
@@ -399,7 +385,6 @@
         </div>
       </div>
 
-      <!-- BUSCA AMAZON -->
       <div class="search-panel" id="spAmazon">
         <div class="search-tip">📦 <strong>Como funciona:</strong> Busque um produto — abrimos a amazon.com.br para você copiar o link e transformá-lo em link de afiliado. Cole o link abaixo e insira sua tag.</div>
         <div class="ml-search-box">
@@ -425,7 +410,6 @@
         </div>
       </div>
 
-      <!-- BUSCA SHOPEE -->
       <div class="search-panel" id="spShopee">
         <div class="search-tip">🧡 <strong>Como funciona:</strong> Busque um produto para abrir a Shopee — copie o link e transforme em link de afiliado usando o <strong>Shopee Afiliados</strong>.</div>
         <div class="ml-search-box">
@@ -455,7 +439,6 @@
       </div>
     </div>
 
-    <!-- TAB: ROBÔ ML -->
     <div class="tab-content" id="tabRobot">
       <div class="robot-status">
         <div class="robot-status-header">
@@ -509,8 +492,7 @@
 
       <div class="robot-btn-row" style="margin-bottom:16px">
         <button class="btn-green" id="btnRobotToggle" onclick="toggleRobot()">▶ Ativar Robô</button>
-        // Localize esta linha dentro de runRobotNow e substitua por esta:
-const resp = await fetch(`/api/ml?endpoint=sites/MLB/search&q=${encodeURIComponent(kw)}&limit=5`);
+        <button class="btn-secondary" onclick="runRobotNow()">⚡ Executar Agora</button>
         <button class="btn-secondary" onclick="clearRobotLog()">🗑 Limpar Log</button>
       </div>
 
@@ -523,7 +505,6 @@ const resp = await fetch(`/api/ml?endpoint=sites/MLB/search&q=${encodeURICompone
       <div class="search-tip">⚠️ <strong>Atenção:</strong> O robô adiciona produtos com a flag <em>"⚠️ Trocar link afiliado"</em>. Lembre de substituir os links pelo seu link de afiliado ML antes de divulgar!</div>
     </div>
 
-    <!-- TAB: CONFIG -->
     <div class="tab-content" id="tabConfig">
       <div class="form-group">
         <label class="form-label">Banner (URL da imagem)</label>
@@ -569,7 +550,6 @@ const resp = await fetch(`/api/ml?endpoint=sites/MLB/search&q=${encodeURICompone
   </div>
 </div>
 
-<!-- PRIVACIDADE -->
 <div class="overlay" id="privacidade">
   <div class="legal-box">
     <button class="admin-close" onclick="closeOverlay('privacidade')">✕</button>
@@ -593,7 +573,6 @@ const resp = await fetch(`/api/ml?endpoint=sites/MLB/search&q=${encodeURICompone
   </div>
 </div>
 
-<!-- TERMOS -->
 <div class="overlay" id="termos">
   <div class="legal-box">
     <button class="admin-close" onclick="closeOverlay('termos')">✕</button>
@@ -614,9 +593,6 @@ const resp = await fetch(`/api/ml?endpoint=sites/MLB/search&q=${encodeURICompone
 <div id="toast"></div>
 
 <script>
-/* ═══════════════════════════════════════════
-   ESTADO GLOBAL
-═══════════════════════════════════════════ */
 let products = JSON.parse(localStorage.getItem('bo_products')||'[]');
 let config   = JSON.parse(localStorage.getItem('bo_config')||'{}');
 let currentCat = 'todos';
@@ -629,9 +605,6 @@ let robotLog = JSON.parse(localStorage.getItem('bo_robot_log')||'[]');
 const DEFAULT_PW = 'Busca@2026';
 function getPW(){ return localStorage.getItem('bo_pw') || DEFAULT_PW; }
 
-/* ═══════════════════════════════════════════
-   GATILHOS SECRETOS
-═══════════════════════════════════════════ */
 let lClicks=0, lTimer;
 document.getElementById('logoBtn').addEventListener('click',()=>{
   lClicks++; clearTimeout(lTimer);
@@ -640,9 +613,6 @@ document.getElementById('logoBtn').addEventListener('click',()=>{
 });
 document.getElementById('secretDot').addEventListener('click', openLogin);
 
-/* ═══════════════════════════════════════════
-   AUTH
-═══════════════════════════════════════════ */
 function openLogin(){
   document.getElementById('loginInput').value='';
   document.getElementById('loginError').style.display='none';
@@ -670,16 +640,12 @@ function changePassword(){
   toast('🔐 Senha alterada com sucesso!');
 }
 
-/* ═══════════════════════════════════════════
-   ADMIN / OVERLAYS
-═══════════════════════════════════════════ */
 function openAdmin(){
   isAdmin=true;
   document.body.classList.add('admin-mode');
   applyConfig();
   renderProducts();
   renderRobotLog();
-  // Restore saved affiliate tags
   const atag = localStorage.getItem('bo_amazon_tag')||'';
   const stag = localStorage.getItem('bo_shopee_tag')||'';
   if(atag) document.getElementById('amazonTag').value = atag;
@@ -707,9 +673,6 @@ function switchTabByName(id){
   if(idx>=0) document.querySelectorAll('.admin-tab')[idx].classList.add('active');
 }
 
-/* ═══════════════════════════════════════════
-   CONFIG / SOCIAL
-═══════════════════════════════════════════ */
 function applyConfig(){
   if(config.banner) document.getElementById('heroBanner').src=config.banner;
   const sc=[];
@@ -728,9 +691,6 @@ function applyConfig(){
 function saveBanner(){ const u=document.getElementById('configBanner').value.trim(); if(!u) return; config.banner=u; localStorage.setItem('bo_config',JSON.stringify(config)); document.getElementById('heroBanner').src=u; toast('Banner atualizado!'); }
 function saveSocial(){ config.insta=document.getElementById('configInsta').value.trim(); config.tiktok=document.getElementById('configTiktok').value.trim(); config.whats=document.getElementById('configWhats').value.trim(); config.telegram=document.getElementById('configTelegram').value.trim(); localStorage.setItem('bo_config',JSON.stringify(config)); applyConfig(); toast('Redes sociais salvas!'); }
 
-/* ═══════════════════════════════════════════
-   RENDER PRODUTOS
-═══════════════════════════════════════════ */
 function renderProducts(){
   const grid=document.getElementById('productsGrid');
   const list=currentCat==='todos'?products:products.filter(p=>p.cat===currentCat);
@@ -755,9 +715,6 @@ function renderProducts(){
   }).join('');
 }
 
-/* ═══════════════════════════════════════════
-   CRUD PRODUTOS
-═══════════════════════════════════════════ */
 function filterCat(cat,btn){ currentCat=cat; document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); renderProducts(); }
 function saveProduct(){
   const name=document.getElementById('fieldName').value.trim();
@@ -770,506 +727,122 @@ function saveProduct(){
   else{ products.unshift(prod); toast('Produto adicionado!'); }
   localStorage.setItem('bo_products',JSON.stringify(products)); clearForm(); renderProducts(); closeAdmin();
 }
-function editProduct(id,e){ e.stopPropagation(); const p=products.find(x=>x.id===id); if(!p) return; editingId=id; openAdmin(); switchTabByName('tabProduto'); selectPlatform(p.platform); document.getElementById('fieldName').value=p.name; document.getElementById('fieldPrice').value=fBRL(p.price); document.getElementById('fieldOldPrice').value=p.oldPrice?fBRL(p.oldPrice):''; document.getElementById('fieldImg').value=p.img||''; document.getElementById('fieldLink').value=p.link; document.getElementById('fieldCat').value=p.cat; document.getElementById('btnSalvar').textContent='✏️ Atualizar Produto'; }
+function editProduct(id,e){ e.stopPropagation(); const p=products.find(x=>x.id===id); if(!p) return; editingId=id; openAdmin(); switchTabByName('tabProduto'); selectPlatform(p.platform); document.getElementById('fieldName').value=p.name; document.getElementById('fieldPrice').value=fBRL(p.price); document.getElementById('fieldOldPrice').value=p.oldPrice?fBRL(p.price):''; document.getElementById('fieldImg').value=p.img||''; document.getElementById('fieldLink').value=p.link; document.getElementById('fieldCat').value=p.cat; document.getElementById('btnSalvar').textContent='✏️ Atualizar Produto'; }
 function deleteProduct(id,e){ e.stopPropagation(); if(!confirm('Excluir este produto?')) return; products=products.filter(p=>p.id!==id); localStorage.setItem('bo_products',JSON.stringify(products)); renderProducts(); toast('Produto excluído!'); }
 function clearAll(){ if(!confirm('Limpar TODOS os produtos?')) return; products=[]; localStorage.setItem('bo_products',JSON.stringify(products)); renderProducts(); toast('Limpo!'); closeAdmin(); }
 function clearForm(){ ['fieldName','fieldPrice','fieldOldPrice','fieldImg','fieldLink'].forEach(id=>document.getElementById(id).value=''); document.getElementById('fieldCat').value='outros'; editingId=null; }
 
-/* ═══════════════════════════════════════════
-   BUSCA ML
-═══════════════════════════════════════════ */
+async function fetchML(url){
+  const proxied = '/api/ml?' + new URL(url).searchParams.toString() + '&endpoint=' + new URL(url).pathname.replace(/^\//,'');
+  try {
+    const r = await fetch(proxied, { signal: AbortSignal.timeout(15000) });
+    return await r.json();
+  } catch(e) { throw e; }
+}
+
 async function searchML(){
   const q=document.getElementById('mlQuery').value.trim(); if(!q) return;
   const box=document.getElementById('mlResults'); box.style.display='block';
-  box.innerHTML='<div style="padding:16px;text-align:center;color:var(--muted)" class="loading-pulse">Buscando no Mercado Livre...</div>';
+  box.innerHTML='<div style="padding:16px;text-align:center;color:var(--muted)" class="loading-pulse">Buscando...</div>';
   try{
     const data=await fetchML(`https://api.mercadolibre.com/sites/MLB/search?q=${encodeURIComponent(q)}&limit=15`);
     if(!data.results?.length){ box.innerHTML='<div style="padding:16px;text-align:center;color:var(--muted)">Nenhum resultado</div>'; return; }
     box.innerHTML=data.results.map(r=>{
-      const disc = r.original_price ? Math.round((1-r.price/r.original_price)*100) : 0;
-      const discBadge = disc>5 ? `<span style="color:#ff5252;font-size:.7rem;font-weight:700"> -${disc}%</span>` : '';
       return `<div class="result-item" onclick="fillFromML('${r.title.replace(/'/g,"\\'")}',${r.price},${r.original_price||'null'},'${r.thumbnail}','${r.permalink}')">
-        <img src="${r.thumbnail}" alt="">
-        <div class="result-info">
-          <div class="result-name">${r.title}</div>
-          <div class="result-price">${fBRL(r.price)}${discBadge}</div>
-          <div class="result-meta">${r.seller?.nickname||''}</div>
-        </div>
+        <img src="${r.thumbnail}">
+        <div class="result-info"><div class="result-name">${r.title}</div><div class="result-price">${fBRL(r.price)}</div></div>
       </div>`;
     }).join('');
-  }catch{ box.innerHTML='<div style="padding:16px;text-align:center;color:#ff7c5e">Erro ao buscar. Tente novamente.</div>'; }
+  }catch{ box.innerHTML='<div style="padding:16px;text-align:center;color:#ff7c5e">Erro na busca.</div>'; }
 }
-function fillFromML(title,price,oldPrice,thumb,permalink){
-  switchTabByName('tabProduto');
-  selectPlatform('ml');
-  document.getElementById('fieldName').value=title;
-  document.getElementById('fieldPrice').value=fBRL(price);
-  if(oldPrice) document.getElementById('fieldOldPrice').value=fBRL(oldPrice);
-  document.getElementById('fieldImg').value=thumb.replace('I.jpg','O.jpg');
-  document.getElementById('fieldLink').value=permalink;
-  document.getElementById('mlResults').style.display='none';
-  toast('✅ Preenchido! Substitua o link pelo seu link de afiliado ML.');
-}
-
-/* ═══════════════════════════════════════════
-   BUSCA AMAZON
-═══════════════════════════════════════════ */
-async function searchAmazon(){
-  const q=document.getElementById('amazonQuery').value.trim(); if(!q) return;
-  const box=document.getElementById('amazonResults'); box.style.display='block';
-  box.innerHTML='<div style="padding:14px;text-align:center;color:var(--muted)" class="loading-pulse">Preparando busca Amazon...</div>';
-  // Amazon não tem API pública com CORS — abrimos em nova aba
-  setTimeout(()=>{
-    const url=`https://www.amazon.com.br/s?k=${encodeURIComponent(q)}&tag=${document.getElementById('amazonTag').value||'seutag-20'}`;
-    window.open(url,'_blank');
-    box.innerHTML=`<div style="padding:14px 16px;font-size:.83rem;color:var(--muted);line-height:1.6">
-      <strong style="color:var(--text)">Amazon aberta em nova aba! ✅</strong><br>
-      1. Encontre o produto desejado<br>
-      2. Copie a URL do produto<br>
-      3. Cole no <strong>Gerador de Link</strong> abaixo<br>
-      4. Insira sua tag de afiliado<br>
-      5. Clique em "Usar este link no cadastro"
-    </div>`;
-  },400);
-}
-function buildAmazonLink(){
-  const url = document.getElementById('amazonProductUrl').value.trim();
-  const tag = document.getElementById('amazonTag').value.trim() || 'seutag-20';
-  const out = document.getElementById('amazonAffLink');
-  if(!url){ out.textContent = '← Cole o link e insira sua tag acima'; return; }
-  try{
-    // Extract ASIN and rebuild clean URL
-    const asinMatch = url.match(/\/dp\/([A-Z0-9]{10})/i) || url.match(/\/gp\/product\/([A-Z0-9]{10})/i);
-    if(asinMatch){
-      out.textContent = `https://www.amazon.com.br/dp/${asinMatch[1]}?tag=${tag}`;
-    } else {
-      // Fallback: add tag param to URL
-      const u = new URL(url.startsWith('http')?url:'https://'+url);
-      u.searchParams.set('tag',tag);
-      u.searchParams.delete('ref');
-      out.textContent = u.toString();
-    }
-  }catch{
-    out.textContent = url + (url.includes('?')?'&':'?') + `tag=${tag}`;
-  }
-}
-function saveAmazonTag(){ localStorage.setItem('bo_amazon_tag', document.getElementById('amazonTag').value.trim()); }
-function fillFromAmazonBuilder(){
-  const link = document.getElementById('amazonAffLink').textContent;
-  if(!link || link.startsWith('←')){ toast('⚠️ Gere um link primeiro!'); return; }
-  switchTabByName('tabProduto');
-  selectPlatform('amazon');
-  document.getElementById('fieldLink').value = link;
-  toast('✅ Link Amazon preenchido! Complete nome, preço e imagem.');
-}
-
-/* ═══════════════════════════════════════════
-   BUSCA SHOPEE
-═══════════════════════════════════════════ */
-async function searchShopee(){
-  const q=document.getElementById('shopeeQuery').value.trim(); if(!q) return;
-  const box=document.getElementById('shopeeResults'); box.style.display='block';
-  box.innerHTML='<div style="padding:14px;text-align:center;color:var(--muted)" class="loading-pulse">Preparando busca Shopee...</div>';
-
-  // Tentativa: API pública da Shopee
-  try {
-    const res = await fetch(`https://shopee.com.br/api/v4/search/search_items?by=relevancy&keyword=${encodeURIComponent(q)}&limit=10&newest=0&order=desc&page_type=search&scenario=PAGE_GLOBAL_SEARCH&version=2`, {signal: AbortSignal.timeout(5000)});
-    const data = await res.json();
-    const items = data?.items || [];
-    if(items.length > 0){
-      box.innerHTML = items.map(item=>{
-        const i = item.item_basic || item;
-        const price = i.price / 100000;
-        const thumb = i.image ? `https://cf.shopee.com.br/file/${i.image}` : '';
-        const shopid = i.shopid;
-        const itemid = i.itemid;
-        const link = `https://shopee.com.br/product/${shopid}/${itemid}`;
-        const name = i.name || '';
-        return `<div class="result-item" onclick="fillFromShopee('${name.replace(/'/g,"\\'")}',${price},'${thumb}','${link}')">
-          <img src="${thumb}" alt="" onerror="this.style.display='none'">
-          <div class="result-info">
-            <div class="result-name">${name}</div>
-            <div class="result-price">${fBRL(price)}</div>
-            <div class="result-meta">⭐ ${i.item_rating?.rating_star?.toFixed(1)||'—'} · ${i.sold||0} vendidos</div>
-          </div>
-        </div>`;
-      }).join('');
-      return;
-    }
-  } catch(e){ /* CORS ou outro erro — fallback */ }
-
-  // Fallback: abrir Shopee em nova aba
-  const url = `https://shopee.com.br/search?keyword=${encodeURIComponent(q)}`;
-  window.open(url,'_blank');
-  box.innerHTML=`<div style="padding:14px 16px;font-size:.83rem;color:var(--muted);line-height:1.6">
-    <strong style="color:var(--text)">Shopee aberta em nova aba! ✅</strong><br>
-    1. Encontre o produto desejado<br>
-    2. Copie a URL do produto<br>
-    3. Cole no <strong>Gerador de Link</strong> abaixo<br>
-    4. Insira seu ID de afiliado<br>
-    5. Gere o link pelo painel afiliados Shopee
-  </div>`;
-}
-function fillFromShopee(title,price,thumb,link){
-  switchTabByName('tabProduto');
-  selectPlatform('shopee');
-  document.getElementById('fieldName').value=title;
-  document.getElementById('fieldPrice').value=fBRL(price);
-  document.getElementById('fieldImg').value=thumb;
+function fillFromML(t,p,op,img,link){
+  switchTabByName('tabProduto'); selectPlatform('ml');
+  document.getElementById('fieldName').value=t; document.getElementById('fieldPrice').value=fBRL(p);
+  if(op) document.getElementById('fieldOldPrice').value=fBRL(op);
+  document.getElementById('fieldImg').value=img.replace('I.jpg','O.jpg');
   document.getElementById('fieldLink').value=link;
-  document.getElementById('shopeeResults').style.display='none';
-  toast('✅ Preenchido! Substitua o link pelo seu link de afiliado Shopee.');
-}
-function buildShopeeLink(){
-  const url = document.getElementById('shopeeProductUrl').value.trim();
-  const tag = document.getElementById('shopeeTag').value.trim();
-  const out = document.getElementById('shopeeAffLink');
-  if(!url){ out.textContent = '← Cole o link e insira seu ID acima'; return; }
-  if(!tag){ out.textContent = url + ' (insira seu ID afiliado →)'; return; }
-  // Shopee affiliate links: smct.shopee.com.br
-  out.textContent = `https://s.shopee.com.br/ALifN0aMy?smtt=${tag}&url=${encodeURIComponent(url)}`;
-}
-function saveShopeeTag(){ localStorage.setItem('bo_shopee_tag', document.getElementById('shopeeTag').value.trim()); }
-function fillFromShopeeBuilder(){
-  const link = document.getElementById('shopeeAffLink').textContent;
-  if(!link || link.startsWith('←')){ toast('⚠️ Gere um link primeiro!'); return; }
-  switchTabByName('tabProduto');
-  selectPlatform('shopee');
-  document.getElementById('fieldLink').value = link;
-  toast('✅ Link Shopee preenchido! Complete nome, preço e imagem.');
+  document.getElementById('mlResults').style.display='none';
 }
 
-function switchSearchTab(platform){
-  document.querySelectorAll('.search-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.search-tab-btn').forEach(b=>{b.className='search-tab-btn';});
-  document.getElementById('sp'+platform.charAt(0).toUpperCase()+platform.slice(1)).classList.add('active');
-  const btn = document.getElementById('stb'+platform.charAt(0).toUpperCase()+platform.slice(1));
-  btn.classList.add('act-'+platform);
-}
-
-/* ═══════════════════════════════════════════
-   TENDÊNCIAS ML
-═══════════════════════════════════════════ */
-let trendKeywords = [];
-function buildTrendCard(keyword,i){
-  const kw=keyword.replace(/'/g,"\\'");
-  return `<div class="trend-card" onclick="if(!isAdmin){toast('Faça login para adicionar');}">
-    <div class="trend-num">${i+1}</div>
-    <div class="trend-name">${keyword}</div>
-    <button class="trend-add-btn" title="Buscar e adicionar" onclick="event.stopPropagation();quickAddFromTrend('${kw}',this)">+</button>
-  </div>`;
-}
 async function loadTrends(){
   const grid=document.getElementById('trendsGrid');
-  const badge=document.getElementById('trendsBadge');
-  grid.innerHTML='<div class="trend-loading loading-pulse">Carregando tendências do Mercado Livre...</div>';
-  badge.textContent='⏳ ML';
+  grid.innerHTML='<div class="trend-loading">Carregando tendências...</div>';
   try{
     const data=await fetchML('https://api.mercadolibre.com/trends/MLB');
-    trendKeywords = (Array.isArray(data)?data:[]).map(d=>typeof d==='string'?d:d.keyword).filter(Boolean).slice(0,20);
+    trendKeywords = (Array.isArray(data)?data:[]).map(d=>d.keyword||d).slice(0,20);
     grid.innerHTML=trendKeywords.map((kw,i)=>buildTrendCard(kw,i)).join('');
-    badge.textContent='🔴 Ao vivo · ML';
-    addRobotLog(`🔥 Tendências carregadas: ${trendKeywords.length} keywords`, 'ok');
   }catch{
-    trendKeywords=['iPhone','Notebook','Airfryer','Smart TV','Nike Air Force','PlayStation 5','AirPods','Perfume importado','Biquíni','Tênis Adidas','Geladeira','Máquina de Lavar','Cadeira Gamer','Fone Bluetooth','Kindle','Micro-ondas','Cortador de Cabelo','Mochila','Smartwatch','Câmera'];
-    grid.innerHTML=trendKeywords.map((k,i)=>buildTrendCard(k,i)).join('');
-    badge.textContent='⚡ Populares';
-    addRobotLog('⚠️ API offline — usando lista padrão', 'warn');
+    grid.innerHTML='<div class="trend-loading">Erro ao carregar tendências.</div>';
   }
 }
-async function quickAddFromTrend(kw,btn){
-  if(!isAdmin){ toast('Faça login como admin primeiro.'); return; }
-  btn.textContent='⏳'; btn.disabled=true;
-  try{
-    const data=await fetchML(`https://api.mercadolibre.com/sites/MLB/search?q=${encodeURIComponent(kw)}&limit=1`);
-    const r=data.results?.[0];
-    if(!r){ toast('Nenhum produto encontrado.'); btn.textContent='+'; btn.disabled=false; return; }
-    products.unshift({id:Date.now().toString(),name:r.title,price:r.price,oldPrice:r.original_price||null,img:r.thumbnail.replace('I.jpg','O.jpg'),link:r.permalink,cat:'outros',platform:'ml',pendingLink:true});
-    localStorage.setItem('bo_products',JSON.stringify(products));
-    renderProducts();
-    btn.textContent='✅'; btn.style.background='var(--green)';
-    toast('✅ Adicionado! Lembre de trocar o link pelo de afiliado ML.');
-    setTimeout(()=>{ btn.textContent='+'; btn.style.background=''; btn.disabled=false; },2500);
-  }catch{ toast('Erro ao buscar.'); btn.textContent='+'; btn.disabled=false; }
+function buildTrendCard(kw,i){
+  return `<div class="trend-card" onclick="if(isAdmin)quickAddFromTrend('${kw.replace(/'/g,"\\'")}',this)">
+    <div class="trend-num">${i+1}</div><div class="trend-name">${kw}</div>
+    <button class="trend-add-btn" onclick="event.stopPropagation();quickAddFromTrend('${kw.replace(/'/g,"\\'")}',this)">+</button>
+  </div>`;
 }
 
-/* ═══════════════════════════════════════════
-   ROBÔ AUTOMÁTICO ML
-═══════════════════════════════════════════ */
-function addRobotLog(msg, type='ok'){
-  const now = new Date().toLocaleTimeString('pt-BR');
-  robotLog.unshift({msg, type, time:now, date: new Date().toLocaleDateString('pt-BR')});
-  if(robotLog.length>50) robotLog.pop();
+async function runRobotNow(){
+  if(!isAdmin) return;
+  setRobotStatus(robotRunning, true);
+  addRobotLog('Iniciando busca automática...', 'ok');
+  const qty = parseInt(document.getElementById('robotQty').value);
+  const cat = document.getElementById('robotCat').value;
+  const skipDup = document.getElementById('robotSkipDup').value === '1';
+
+  let keywords = trendKeywords.length ? trendKeywords.slice(0, qty) : ['celular','notebook','airfryer'].slice(0,qty);
+  let added=0, errors=0;
+
+  for(const kw of keywords){
+    try{
+      const data = await fetchML(`https://api.mercadolibre.com/sites/MLB/search?q=${encodeURIComponent(kw)}&limit=5`);
+      const r = data.results?.[0];
+      if(r){
+        products.unshift({id:Date.now().toString(36)+Math.random().toString(36).substr(2,5), name:r.title, price:r.price, oldPrice:r.original_price, img:r.thumbnail.replace('I.jpg','O.jpg'), link:r.permalink, cat, platform:'ml', pendingLink:true});
+        added++; addRobotLog('Adicionado: '+r.title.substr(0,30)+'...','ok');
+      }
+    }catch(e){ errors++; addRobotLog('Erro ao buscar '+kw,'err'); }
+  }
+  localStorage.setItem('bo_products', JSON.stringify(products));
+  renderProducts(); setRobotStatus(robotRunning, false);
+  addRobotLog(`Fim: ${added} adicionados, ${errors} erros.`,'ok');
+}
+
+function toggleRobot(){
+  robotRunning = !robotRunning; setRobotStatus(robotRunning);
+  if(robotRunning) { 
+    runRobotNow(); 
+    robotTimer = setInterval(runRobotNow, parseInt(document.getElementById('robotInterval').value));
+  } else { clearInterval(robotTimer); }
+}
+
+function setRobotStatus(on, busy){
+  document.getElementById('robotDot').className = 'robot-dot'+(on?(busy?' busy':' on'):'');
+  document.getElementById('robotStatusText').textContent = on ? (busy?'Executando...':'Ativo') : 'Parado';
+  document.getElementById('btnRobotToggle').textContent = on ? '⏹ Parar Robô' : '▶ Ativar Robô';
+}
+function addRobotLog(m,t){ 
+  const now = new Date().toLocaleTimeString();
+  robotLog.unshift({msg:m, type:t, time:now});
+  if(robotLog.length>20) robotLog.pop();
   localStorage.setItem('bo_robot_log', JSON.stringify(robotLog));
   renderRobotLog();
 }
 function renderRobotLog(){
   const el = document.getElementById('robotLog');
-  if(!el) return;
-  if(!robotLog.length){ el.innerHTML='<span style="color:var(--muted)">Nenhuma execução ainda.</span>'; return; }
-  el.innerHTML = robotLog.map(l=>`<div class="log-${l.type}">[${l.date} ${l.time}] ${l.msg}</div>`).join('');
+  el.innerHTML = robotLog.map(l=>`<div class="log-${l.type}">[${l.time}] ${l.msg}</div>`).join('');
 }
-function clearRobotLog(){ robotLog=[]; localStorage.removeItem('bo_robot_log'); renderRobotLog(); toast('Log limpo!'); }
+function clearRobotLog(){ robotLog=[]; renderRobotLog(); }
 
-function setRobotStatus(on, busy=false){
-  const dot = document.getElementById('robotDot');
-  const txt = document.getElementById('robotStatusText');
-  const btn = document.getElementById('btnRobotToggle');
-  if(!dot) return;
-  dot.className = 'robot-dot' + (on?(busy?' busy':' on'):'');
-  txt.textContent = on ? (busy?'Robô executando...':'Robô ativo ✅') : 'Robô parado';
-  if(btn) btn.textContent = on ? '⏹ Parar Robô' : '▶ Ativar Robô';
-}
-function updateNextRun(){
-  const chip = document.getElementById('robotNextRun');
-  if(!chip) return;
-  if(!robotRunning){ chip.textContent='—'; return; }
-  const next = parseInt(localStorage.getItem('bo_robot_next')||'0');
-  const diff = next - Date.now();
-  if(diff<=0){ chip.textContent='Agora'; return; }
-  const m = Math.floor(diff/60000);
-  const h = Math.floor(m/60);
-  chip.textContent = h>0 ? `Próximo: ${h}h ${m%60}m` : `Próximo: ${m}m`;
-}
-
-// Helper: fetch ML com tratamento robusto
-// Lista padrão robusta usada como fallback
-const FALLBACK_KEYWORDS = [
-  'Notebook','Airfryer','Smart TV','Fone Bluetooth',
-  'Smartwatch','Cadeira Gamer','Kindle','Micro-ondas','Mochila',
-  'Camera digital','Fritadeira eletrica','Aspirador robo',
-  'Caixa de som Bluetooth','Cafeteira','Monitor gamer'
-];
-
-// ── PROXY PRÓPRIO (Vercel Serverless) ──────────────────
-// Converte URL da API ML em chamada ao nosso /api/ml
-// Ex: https://api.mercadolibre.com/sites/MLB/search?q=X
-//  → /api/ml?endpoint=sites/MLB/search&q=X
-function mlUrlToProxy(url){
-  try {
-    const u = new URL(url);
-    // Extrai o endpoint (sem a barra inicial)
-    const endpoint = u.pathname.replace(/^\//, '');
-    const params = new URLSearchParams(u.search);
-    params.set('endpoint', endpoint);
-    return '/api/ml?' + params.toString();
-  } catch {
-    return url;
-  }
-}
-
-let _mlToken = null;
-let _mlTokenExpiry = 0;
-async function getMLToken(){
-  if(_mlToken && Date.now() < _mlTokenExpiry) return _mlToken;
-  try{
-    const r = await fetch('/api/token', {signal: AbortSignal.timeout(8000)});
-    const d = await r.json();
-    if(d.access_token){ _mlToken = d.access_token; _mlTokenExpiry = Date.now() + 3600000; }
-  }catch(e){ _mlToken = null; }
-  return _mlToken;
-}
-async function fetchML(url){
-  // Estrategia 1: chamada direta simples (browser brasileiro, sem headers extras)
-  try {
-    const r = await fetch(url, {signal: AbortSignal.timeout(12000)});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const d = await r.json();
-    if(d&&(d.error==='forbidden'||d.message==='forbidden')) throw new Error('forbidden');
-    if(d&&d.error&&!d.results&&!Array.isArray(d)) throw new Error(d.message||d.error);
-    return d;
-  } catch(e1) {}
-
-  // Estrategia 2: com Bearer token
-  try {
-    const token = await getMLToken();
-    const h = {'Accept':'application/json'};
-    if(token) h['Authorization']='Bearer '+token;
-    const r = await fetch(url, {headers:h, signal: AbortSignal.timeout(12000)});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const d = await r.json();
-    if(d&&(d.error==='forbidden'||d.message==='forbidden')) throw new Error('forbidden');
-    if(d&&d.error&&!d.results&&!Array.isArray(d)) throw new Error(d.message||d.error);
-    return d;
-  } catch(e2) {}
-
-  // Estrategia 3: proxy proprio /api/ml (servidor + token)
-  try {
-    const proxied = mlUrlToProxy(url);
-    const r = await fetch(proxied, {signal: AbortSignal.timeout(15000)});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const d = await r.json();
-    if(d&&d.error&&!d.results&&!Array.isArray(d)) throw new Error(d.message||d.error);
-    return d;
-  } catch(e3) {}
-
-  // Estrategia 4: allorigins
-  try {
-    const r = await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(url),{signal:AbortSignal.timeout(15000)});
-    if(!r.ok) throw new Error('allorigins HTTP '+r.status);
-    const w = await r.json();
-    if(!w.contents) throw new Error('allorigins vazio');
-    const d = JSON.parse(w.contents);
-    if(d&&d.error&&!d.results&&!Array.isArray(d)) throw new Error(d.message||d.error);
-    return d;
-  } catch(e4) {
-    throw new Error('Todas estrategias falharam: '+e4.message);
-  }
-}
-
-const resp = await fetch(
-  `/api/ml?endpoint=sites/MLB/search&q=${encodeURIComponent(kw)}&limit=5`,
-  { signal: AbortSignal.timeout(15000) }
-);
-  if(!isAdmin){ toast('Faca login primeiro.'); return; }
-  setRobotStatus(robotRunning, true);
-  addRobotLog('Iniciando busca automatica...', 'ok');
-
-  const qty     = parseInt(document.getElementById('robotQty')?.value||'5');
-  const cat     = document.getElementById('robotCat')?.value||'outros';
-  const skipDup = document.getElementById('robotSkipDup')?.value !== '0';
-
-  // 1. Montar lista de keywords
-  let keywords = trendKeywords.length ? [...trendKeywords] : [];
-  if(!keywords.length){
-    try{
-      const tdata = await fetchML('https://api.mercadolibre.com/trends/MLB');
-      const kws = (Array.isArray(tdata)?tdata:[])
-        .map(d=>typeof d==='string'?d:d.keyword)
-        .filter(Boolean);
-      if(kws.length){ keywords=kws.slice(0,20); trendKeywords=keywords; addRobotLog(keywords.length+' tendencias carregadas','ok'); }
-      else throw new Error('lista vazia');
-    }catch(e){
-      keywords=[...FALLBACK_KEYWORDS];
-      addRobotLog('Usando lista padrao ('+keywords.length+' keywords)','warn');
-    }
-  } else {
-    addRobotLog('Usando '+keywords.length+' tendencias ja carregadas','ok');
-  }
-
-  // 2. Buscar produtos com app_id na URL (exigido pelo ML sem OAuth)
-  const toAdd = keywords.slice(0, qty);
-  addRobotLog('Buscando '+toAdd.length+' produtos...','ok');
-
-  const APP_ID = '1224179727396628';
-
-  let added=0, skipped=0, errors=0;
-  const existingNames = new Set(products.map(p=>p.name.toLowerCase()));
-
-  for(const kw of toAdd){
-    try{
-      const resp = await fetch(
-        'https://api.mercadolibre.com/sites/MLB/search?q='+encodeURIComponent(kw)+'&limit=5&app_id='+APP_ID,
-        { signal: AbortSignal.timeout(15000) }
-      );
-      if(!resp.ok) throw new Error('HTTP '+resp.status);
-      const data = await resp.json();
-      if(data && data.error) throw new Error(data.message || data.error);
-      const results = (data.results||[]).filter(r=>r.price>0);
-      if(!results.length){ errors++; addRobotLog('Sem resultado: "'+kw+'"','warn'); continue; }
-
-      const r = results[0];
-      if(skipDup && existingNames.has(r.title.toLowerCase())){
-        skipped++; addRobotLog('Duplicado: "'+r.title.substring(0,40)+'"','warn'); continue;
-      }
-
-      products.unshift({
-        id: Date.now().toString(36)+Math.random().toString(36).substr(2,5),
-        name:     r.title,
-        price:    r.price,
-        oldPrice: (r.original_price&&r.original_price>r.price)?r.original_price:null,
-        img:      (r.thumbnail||'').replace(/I\.jpg$/,'O.jpg'),
-        link:     r.permalink,
-        cat, platform:'ml', pendingLink:true
-      });
-      existingNames.add(r.title.toLowerCase());
-      added++;
-      addRobotLog('OK: '+r.title.substring(0,50)+' | '+fBRL(r.price),'ok');
-      await new Promise(r=>setTimeout(r,500));
-
-    }catch(e){
-      errors++;
-      addRobotLog('Erro "'+kw+'": '+e.message,'err');
-    }
-  }
-  localStorage.setItem('bo_products', JSON.stringify(products));
-  renderProducts();
-  setRobotStatus(robotRunning, false);
-  addRobotLog('Resumo: '+added+' add | '+skipped+' dup | '+errors+' erro(s)', added>0?'ok':'warn');
-  toast(added>0?'Robo: '+added+' produto(s) adicionado(s)!':'Nenhum produto novo encontrado.');
-}
-
-function toggleRobot(){
-  if(!isAdmin){ toast('Faça login primeiro.'); return; }
-  robotRunning = !robotRunning;
-  setRobotStatus(robotRunning);
-
-  if(robotRunning){
-    const interval = parseInt(document.getElementById('robotInterval').value);
-    localStorage.setItem('bo_robot_interval', interval.toString());
-    localStorage.setItem('bo_robot_next', (Date.now()+interval).toString());
-    addRobotLog(`▶ Robô ativado · Intervalo: ${formatMs(interval)}`, 'ok');
-    runRobotNow();
-    robotTimer = setInterval(()=>{
-      localStorage.setItem('bo_robot_next', (Date.now()+interval).toString());
-      runRobotNow();
-    }, interval);
-    toast('🤖 Robô ativado!');
-  } else {
-    clearInterval(robotTimer);
-    robotTimer = null;
-    localStorage.removeItem('bo_robot_next');
-    addRobotLog('⏹ Robô parado pelo admin', 'warn');
-    toast('Robô parado.');
-  }
-  updateNextRun();
-}
-function formatMs(ms){ if(ms<3600000) return `${ms/60000} min`; return `${ms/3600000}h`; }
-
-// Atualiza o chip "próxima execução" a cada 30s
-setInterval(updateNextRun, 30000);
-
-/* ═══════════════════════════════════════════
-   UTILITÁRIOS
-═══════════════════════════════════════════ */
-function generateDemo(){
-  const demos=[
-    {name:'iPhone 15 Pro Max 256GB',price:7499,oldPrice:9499,cat:'celular',platform:'amazon',img:'https://m.media-amazon.com/images/I/41bwoiQMd2L._AC_SX300_SY300_.jpg',link:'#afiliado'},
-    {name:'Airfryer Philips Walita 4.1L',price:389,oldPrice:599,cat:'cozinha',platform:'ml',img:'https://http2.mlstatic.com/D_NQ_NP_783208-MLA71768000325_092023-O.webp',link:'#afiliado'},
-    {name:'Samsung Galaxy S24 128GB',price:3499,oldPrice:4299,cat:'celular',platform:'shopee',img:'',link:'#afiliado'},
-    {name:'Smart TV Samsung 50" 4K',price:1899,oldPrice:2599,cat:'tv',platform:'amazon',img:'https://m.media-amazon.com/images/I/71ljRXNlALL._AC_SX300_SY300_.jpg',link:'#afiliado'},
-    {name:'Nike Air Force 1 Branco',price:449,oldPrice:599,cat:'moda',platform:'ml',img:'https://http2.mlstatic.com/D_NQ_NP_896311-MLA73467498905_122023-O.webp',link:'#afiliado'},
-    {name:'PlayStation 5 Slim Digital',price:3599,oldPrice:4299,cat:'games',platform:'shopee',img:'',link:'#afiliado'}
-  ];
-  const ex=new Set(products.map(p=>p.name)); let n=0;
-  demos.forEach(d=>{ if(!ex.has(d.name)){ products.unshift({...d,id:Date.now().toString()+Math.random()}); n++; } });
-  localStorage.setItem('bo_products',JSON.stringify(products)); renderProducts(); toast(`${n} produtos demo adicionados!`); closeAdmin();
-}
 function selectPlatform(p){
   document.getElementById('fieldPlatform').value=p;
-  document.getElementById('platML').className='plat-tab'+(p==='ml'?' active-ml':'');
-  document.getElementById('platAmazon').className='plat-tab'+(p==='amazon'?' active-amazon':'');
-  document.getElementById('platShopee').className='plat-tab'+(p==='shopee'?' active-shopee':'');
+  ['ml','amazon','shopee'].forEach(x=>document.getElementById('plat'+x.charAt(0).toUpperCase()+x.slice(1)).className='plat-tab'+(p===x?' active-'+x:''));
 }
-function fBRL(v){ if(!v&&v!==0) return ''; return 'R$ '+parseFloat(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
-function formatPrice(el){ let v=el.value.replace(/[^\d]/g,''); if(!v){el.value='';return;} el.value='R$ '+parseFloat((parseInt(v)/100).toFixed(2)).toLocaleString('pt-BR',{minimumFractionDigits:2}); }
-let tt; function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.style.display='block'; clearTimeout(tt); tt=setTimeout(()=>el.style.display='none',2800); }
-function copyText(elId){
-  const text = document.getElementById(elId).textContent;
-  navigator.clipboard.writeText(text).then(()=>toast('📋 Copiado!')).catch(()=>{
-    const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); toast('📋 Copiado!');
-  });
-}
+function fBRL(v){ return 'R$ '+parseFloat(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2}); }
+function formatPrice(el){ let v=el.value.replace(/\D/g,''); el.value=fBRL(v/100); }
+function toast(m){ const e=document.getElementById('toast'); e.textContent=m; e.style.display='block'; setTimeout(()=>e.style.display='none',3000); }
 
-/* ═══════════════════════════════════════════
-   INIT
-═══════════════════════════════════════════ */
-document.addEventListener('DOMContentLoaded',()=>{
-  applyConfig();
-  renderProducts();
-  loadTrends();
-  renderRobotLog();
-});
+document.addEventListener('DOMContentLoaded',()=>{ applyConfig(); renderProducts(); loadTrends(); renderRobotLog(); });
 </script>
 </body>
 </html>
