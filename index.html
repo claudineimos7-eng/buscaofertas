@@ -33,18 +33,9 @@
   .hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:12px;}
   .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
   .hero p{color:var(--muted);font-size:1rem;max-width:500px;margin:0 auto 28px;}
-  .platform-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-  .badge{padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;}
-  .badge-ml{background:rgba(255,230,0,0.12);color:var(--ml);border:1px solid rgba(255,230,0,0.25);}
-  .badge-amazon{background:rgba(255,153,0,0.12);color:var(--amazon);border:1px solid rgba(255,153,0,0.25);}
-  .badge-shopee{background:rgba(238,77,45,0.12);color:#ff7c5e;border:1px solid rgba(238,77,45,0.25);}
-
-  .banner-wrap{padding:0 24px 20px;max-width:1400px;margin:0 auto;}
-  .banner-wrap img{width:100%;height:160px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border);}
 
   .categories{padding:0 24px 24px;max-width:1400px;margin:0 auto;}
   .cats-scroll{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;}
-  .cats-scroll::-webkit-scrollbar{display:none;}
   .cat-btn{flex-shrink:0;background:var(--card);border:1px solid var(--border);color:var(--muted);padding:8px 16px;border-radius:24px;cursor:pointer;font-size:0.85rem;font-family:inherit;transition:all .2s;white-space:nowrap;}
   .cat-btn:hover,.cat-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
 
@@ -52,20 +43,12 @@
   .section-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
   .section-title{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;}
   .section-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
-  .section-badge{background:rgba(255,107,0,0.15);color:var(--accent);border:1px solid rgba(255,107,0,0.3);padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;}
-  .section-btn{background:var(--card2);border:1px solid var(--border);color:var(--muted);padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;}
-  .section-btn:hover{border-color:var(--accent);color:var(--accent);}
 
   .trends-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;}
   .trend-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px;}
   .trend-card:hover{border-color:var(--accent);background:var(--card2);transform:translateY(-2px);}
   .trend-num{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--accent);min-width:24px;}
   .trend-name{font-size:0.82rem;color:var(--text);line-height:1.3;flex:1;}
-  .trend-loading{grid-column:1/-1;text-align:center;color:var(--muted);padding:30px;font-size:.9rem;}
-  .trend-add-btn{display:none;margin-left:auto;background:var(--accent);color:#fff;border:none;border-radius:6px;width:26px;height:26px;font-size:1rem;line-height:1;cursor:pointer;flex-shrink:0;transition:all .15s;align-items:center;justify-content:center;}
-  .trend-add-btn:hover{opacity:.85;transform:scale(1.1);}
-  .admin-mode .trend-add-btn{display:flex;}
-  .pending-badge{position:absolute;top:8px;left:8px;background:rgba(255,184,48,0.15);color:var(--accent2);border:1px solid rgba(255,184,48,0.35);font-size:.68rem;font-weight:700;padding:3px 7px;border-radius:5px;letter-spacing:.3px;}
 
   .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
   .product-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .25s;cursor:pointer;position:relative;animation:fadeUp .4s ease both;}
@@ -75,518 +58,85 @@
   .product-body{padding:14px;}
   .product-platform{display:inline-flex;align-items:center;gap:5px;font-size:0.72rem;font-weight:600;padding:3px 8px;border-radius:6px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;}
   .platform-ml{background:rgba(255,230,0,0.1);color:var(--ml);border:1px solid rgba(255,230,0,0.2);}
-  .platform-amazon{background:rgba(255,153,0,0.1);color:var(--amazon);border:1px solid rgba(255,153,0,0.2);}
-  .platform-shopee{background:rgba(238,77,45,0.1);color:#ff7c5e;border:1px solid rgba(238,77,45,0.2);}
   .product-name{font-size:.88rem;font-weight:500;line-height:1.4;color:var(--text);margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
   .product-price{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--green);margin-bottom:12px;}
-  .product-price .old-price{font-size:.8rem;color:var(--muted);text-decoration:line-through;margin-right:6px;font-family:'DM Sans',sans-serif;font-weight:400;}
   .btn-buy{display:block;width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;text-align:center;text-decoration:none;padding:10px;border-radius:8px;font-weight:600;font-size:.85rem;transition:all .2s;border:none;cursor:pointer;font-family:inherit;}
-  .btn-buy:hover{opacity:.9;transform:scale(1.02);}
-  .product-discount{position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#e53935,#ff5252);color:#fff;font-size:.72rem;font-weight:700;padding:4px 8px;border-radius:6px;}
-  .product-admin-btns{display:flex;gap:6px;margin-top:8px;}
-  .btn-edit,.btn-del{flex:1;padding:6px;border-radius:6px;font-size:.75rem;cursor:pointer;border:none;font-family:inherit;transition:all .2s;}
-  .btn-edit{background:rgba(255,184,48,0.12);color:var(--accent2);border:1px solid rgba(255,184,48,0.2);}
-  .btn-del{background:rgba(238,77,45,0.1);color:#ff7c5e;border:1px solid rgba(238,77,45,0.2);}
-  .btn-edit:hover{background:rgba(255,184,48,0.25);}
-  .btn-del:hover{background:rgba(238,77,45,0.25);}
-  .empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted);}
-  .empty-state .emoji{font-size:3rem;display:block;margin-bottom:12px;}
-
+  
   .overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);overflow-y:auto;padding:24px;align-items:flex-start;justify-content:center;}
   .overlay.open{display:flex;}
-
-  .login-box{background:var(--bg3);border:1px solid var(--border);border-radius:20px;width:100%;max-width:360px;padding:36px;margin:auto;text-align:center;}
-  .login-box .lock-icon{font-size:2.5rem;margin-bottom:16px;}
-  .login-box h2{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:6px;}
-  .login-box p{color:var(--muted);font-size:.85rem;margin-bottom:24px;}
-  .login-error{color:#ff7c5e;font-size:.82rem;margin-bottom:12px;display:none;}
-
   .admin-box{background:var(--bg3);border:1px solid var(--border);border-radius:20px;width:100%;max-width:720px;padding:32px;position:relative;margin:auto;}
-  .admin-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
-  .admin-close{position:absolute;top:20px;right:20px;background:var(--card2);border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-  .admin-close:hover{border-color:var(--accent);color:var(--accent);}
-  .admin-tabs{display:flex;gap:4px;margin-bottom:24px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
-  .admin-tabs::-webkit-scrollbar{display:none;}
-  .admin-tab{padding:8px 14px;border-radius:8px 8px 0 0;background:none;border:none;color:var(--muted);cursor:pointer;font-family:inherit;font-size:.82rem;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;white-space:nowrap;flex-shrink:0;}
-  .admin-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
-  .tab-content{display:none;}
-  .tab-content.active{display:block;}
-
-  .form-group{margin-bottom:16px;}
-  .form-label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:6px;font-weight:500;}
-  .form-input,.form-select,.form-textarea{width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:10px 14px;font-family:inherit;font-size:.88rem;transition:border-color .2s;}
-  .form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--accent);}
-  .form-select option{background:var(--card);}
-  .form-textarea{resize:vertical;min-height:80px;}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-  .platform-tabs{display:flex;gap:8px;margin-bottom:16px;background:var(--card);border-radius:10px;padding:4px;}
-  .plat-tab{flex:1;padding:8px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:600;background:none;color:var(--muted);transition:all .2s;}
-  .plat-tab.active-ml{background:rgba(255,230,0,0.15);color:var(--ml);}
-  .plat-tab.active-amazon{background:rgba(255,153,0,0.15);color:var(--amazon);}
-  .plat-tab.active-shopee{background:rgba(238,77,45,0.15);color:#ff7c5e;}
-
-  .search-tabs{display:flex;gap:6px;margin-bottom:16px;background:var(--card);border-radius:10px;padding:4px;}
-  .search-tab-btn{flex:1;padding:8px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:600;background:none;color:var(--muted);transition:all .2s;}
-  .search-tab-btn.act-ml{background:rgba(255,230,0,0.15);color:var(--ml);}
-  .search-tab-btn.act-amazon{background:rgba(255,153,0,0.15);color:var(--amazon);}
-  .search-tab-btn.act-shopee{background:rgba(238,77,45,0.15);color:#ff7c5e;}
-  .search-panel{display:none;}
-  .search-panel.active{display:block;}
-  .ml-search-box{display:flex;gap:8px;margin-bottom:12px;}
-  .btn-search{background:var(--accent);color:#fff;border:none;padding:10px 18px;border-radius:10px;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;white-space:nowrap;transition:all .2s;}
-  .btn-search:hover{opacity:.85;}
-  .results-box{max-height:240px;overflow-y:auto;background:var(--card);border-radius:10px;border:1px solid var(--border);margin-bottom:12px;display:none;}
-  .result-item{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .15s;}
-  .result-item:last-child{border-bottom:none;}
-  .result-item:hover{background:var(--card2);}
-  .result-item img{width:44px;height:44px;object-fit:contain;border-radius:6px;background:#111;}
-  .result-info{flex:1;min-width:0;}
-  .result-name{font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .result-price{font-size:.78rem;color:var(--green);font-weight:600;}
-  .result-meta{font-size:.72rem;color:var(--muted);}
-  .search-tip{background:rgba(255,107,0,0.06);border:1px solid rgba(255,107,0,0.15);border-radius:10px;padding:12px 14px;font-size:.82rem;color:var(--muted);margin-bottom:12px;line-height:1.5;}
-  .search-tip strong{color:var(--text);}
-  .link-builder{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px;}
-  .link-builder-title{font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;}
-  .affiliate-tag-row{display:flex;gap:8px;align-items:center;margin-bottom:10px;}
-  .tag-input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 12px;font-family:inherit;font-size:.85rem;}
-  .tag-input:focus{outline:none;border-color:var(--accent);}
-  .result-url-box{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--green);padding:8px 12px;font-family:monospace;font-size:.78rem;cursor:text;word-break:break-all;min-height:36px;display:flex;align-items:center;}
-  .btn-copy{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.78rem;font-family:inherit;transition:all .2s;white-space:nowrap;}
-  .btn-copy:hover{border-color:var(--accent);color:var(--accent);}
-  .btn-open{background:rgba(255,107,0,0.1);border:1px solid rgba(255,107,0,0.2);color:var(--accent);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.78rem;font-family:inherit;transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block;}
-  .btn-open:hover{background:rgba(255,107,0,0.2);}
-
-  .btn-save{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;width:100%;padding:12px;border-radius:10px;font-family:inherit;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;}
-  .btn-save:hover{opacity:.9;transform:scale(1.01);}
-  .btn-danger{background:rgba(238,77,45,0.1);color:#ff7c5e;border:1px solid rgba(238,77,45,0.25);border-radius:10px;padding:10px 18px;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;transition:all .2s;}
-  .btn-danger:hover{background:rgba(238,77,45,0.25);}
-  .btn-secondary{background:var(--card2);color:var(--muted);border:1px solid var(--border);border-radius:10px;padding:10px 18px;cursor:pointer;font-family:inherit;font-size:.85rem;transition:all .2s;}
-  .btn-secondary:hover{border-color:var(--accent2);color:var(--accent2);}
-  .btn-green{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.25);border-radius:10px;padding:10px 18px;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;transition:all .2s;}
-  .btn-green:hover{background:rgba(0,230,118,0.2);}
-  .admin-actions{display:flex;gap:10px;flex-wrap:wrap;}
-  .change-pw-section{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
-
+  
   .robot-status{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px;}
-  .robot-status-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-  .robot-dot{width:10px;height:10px;border-radius:50%;background:#555;flex-shrink:0;transition:all .3s;}
-  .robot-dot.on{background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse-dot 2s ease infinite;}
-  @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.5}}
-  .robot-dot.busy{background:var(--accent2);box-shadow:0 0 8px var(--accent2);}
-  .robot-label{font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:8px;}
-  .robot-info{font-size:.78rem;color:var(--muted);line-height:1.6;}
-  .robot-log{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:.75rem;color:var(--muted);font-family:monospace;max-height:120px;overflow-y:auto;line-height:1.8;}
-  .robot-log .log-ok{color:var(--green);}
-  .robot-log .log-warn{color:var(--accent2);}
-  .robot-log .log-err{color:#ff7c5e;}
+  .robot-dot{width:10px;height:10px;border-radius:50%;background:#555;display:inline-block;margin-right:8px;}
+  .robot-dot.on{background:var(--green);box-shadow:0 0 8px var(--green);}
+  .robot-dot.busy{background:var(--accent2);animation:pulse 1s infinite;}
+  @keyframes pulse{0%{opacity:1}50%{opacity:.5}100%{opacity:1}}
+  .robot-log{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px;font-size:.75rem;color:var(--muted);font-family:monospace;max-height:150px;overflow-y:auto;line-height:1.6;}
+  .log-ok{color:var(--green);}
+  .log-err{color:#ff7c5e;}
   .robot-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
-  .control-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;}
-  .control-card label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:6px;}
-  .control-card select,.control-card input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 10px;font-family:inherit;font-size:.85rem;}
-  .control-card select:focus,.control-card input:focus{outline:none;border-color:var(--accent);}
-  .robot-btn-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .control-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;}
+  .control-card label{display:block;font-size:.75rem;color:var(--muted);margin-bottom:5px;}
+  .control-card select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:5px;}
 
-  .legal-box{background:var(--bg3);border:1px solid var(--border);border-radius:20px;width:100%;max-width:720px;padding:36px;position:relative;margin:auto;max-height:90vh;overflow-y:auto;}
-  .legal-box h2{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:6px;}
-  .legal-date{color:var(--muted);font-size:.82rem;margin-bottom:28px;}
-  .legal-box h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--accent);margin:22px 0 8px;}
-  .legal-box p,.legal-box li{color:#c8c8d8;font-size:.9rem;line-height:1.7;margin-bottom:6px;}
-  .legal-box ul{padding-left:18px;margin-bottom:8px;}
-  .legal-highlight{background:rgba(255,107,0,0.07);border-left:3px solid var(--accent);border-radius:8px;padding:12px 16px;margin:12px 0;font-size:.88rem;color:#d8d8e8;}
-
-  footer{text-align:center;padding:32px 24px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border);margin-top:40px;}
-  footer a{color:var(--muted);text-decoration:none;}
-  footer a:hover{color:var(--accent);}
-  .footer-social{display:flex;gap:12px;justify-content:center;margin-bottom:16px;}
-  .footer-social a{font-size:.85rem;}
-  #secretDot{display:inline-block;width:6px;height:6px;border-radius:50%;background:transparent;cursor:default;margin-left:2px;vertical-align:middle;position:relative;top:-1px;}
-
-  #toast{position:fixed;bottom:24px;right:24px;z-index:9999;background:var(--card2);border:1px solid var(--accent);color:var(--text);padding:12px 20px;border-radius:10px;font-size:.88rem;display:none;animation:slideIn .3s ease;max-width:300px;}
-  @keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-  .loading-pulse{animation:pulse 1.5s ease infinite;}
-  .divider{height:1px;background:var(--border);margin:16px 0;}
-  .info-chip{display:inline-flex;align-items:center;gap:5px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:.75rem;color:var(--muted);}
-  @media(max-width:600px){
-    .form-row{grid-template-columns:1fr;}
-    .products-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));}
-    .trends-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
-    .admin-box,.legal-box{padding:20px;}
-    .robot-controls{grid-template-columns:1fr;}
-  }
+  .btn-save,.btn-green,.btn-secondary{padding:10px 16px;border-radius:10px;border:none;cursor:pointer;font-family:inherit;font-weight:600;transition:all .2s;}
+  .btn-green{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.3);}
+  .btn-secondary{background:var(--card2);color:var(--muted);border:1px solid var(--border);margin-left:8px;}
+  #toast{position:fixed;bottom:24px;right:24px;z-index:9999;background:var(--card2);border:1px solid var(--accent);color:var(--text);padding:12px 20px;border-radius:10px;display:none;}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="logo" id="logoBtn">BuscaOfertas <span>deals do Brasil</span></div>
-  <div class="social-header" id="socialHeader"></div>
-</header>
+<header><div class="logo" id="logoBtn">BuscaOfertas <span>deals do Brasil</span></div></header>
 
 <div class="hero">
-  <h1>As melhores ofertas<br>em <em>um só lugar</em></h1>
-  <p>Curadoria de deals do Mercado Livre, Amazon e Shopee. Economize tempo e dinheiro.</p>
-  <div class="platform-badges">
-    <span class="badge badge-ml">🛒 Mercado Livre</span>
-    <span class="badge badge-amazon">📦 Amazon</span>
-    <span class="badge badge-shopee">🧡 Shopee</span>
-  </div>
-</div>
-
-<div class="banner-wrap">
-  <img id="heroBanner" src="https://picsum.photos/1200/300?random=42" alt="Banner">
-</div>
-
-<div class="categories">
-  <div class="cats-scroll">
-    <button class="cat-btn active" onclick="filterCat('todos',this)">🔍 Todos</button>
-    <button class="cat-btn" onclick="filterCat('celular',this)">📱 Celulares</button>
-    <button class="cat-btn" onclick="filterCat('notebook',this)">💻 Notebooks</button>
-    <button class="cat-btn" onclick="filterCat('tv',this)">📺 TV</button>
-    <button class="cat-btn" onclick="filterCat('cozinha',this)">🍳 Cozinha</button>
-    <button class="cat-btn" onclick="filterCat('casa',this)">🏠 Casa</button>
-    <button class="cat-btn" onclick="filterCat('esporte',this)">🏋️ Esporte</button>
-    <button class="cat-btn" onclick="filterCat('beleza',this)">💄 Beleza</button>
-    <button class="cat-btn" onclick="filterCat('games',this)">🎮 Games</button>
-    <button class="cat-btn" onclick="filterCat('moda',this)">👗 Moda</button>
-    <button class="cat-btn" onclick="filterCat('brinquedos',this)">🧸 Brinquedos</button>
-  </div>
+  <h1>As melhores ofertas <em>em um só lugar</em></h1>
+  <p>Curadoria de deals do Mercado Livre. Economize tempo e dinheiro.</p>
 </div>
 
 <div class="section-wrap">
-  <div class="section-header">
-    <span class="section-title">🔥 Tendências em Alta</span>
-    <div class="section-line"></div>
-    <button class="section-btn" onclick="loadTrends()">↻ Atualizar</button>
-    <span class="section-badge" id="trendsBadge">ML</span>
-  </div>
-  <div class="trends-grid" id="trendsGrid">
-    <div class="trend-loading loading-pulse">Carregando tendências do Mercado Livre...</div>
-  </div>
+  <div class="section-header"><span class="section-title">🔥 Tendências em Alta</span><div class="section-line"></div></div>
+  <div class="trends-grid" id="trendsGrid"></div>
 </div>
 
 <div class="section-wrap">
-  <div class="section-header">
-    <span class="section-title">⚡ Ofertas Selecionadas</span>
-    <div class="section-line"></div>
-    <span id="productCount" class="section-badge">0 produtos</span>
-  </div>
-  <div class="products-grid" id="productsGrid">
-    <div class="empty-state"><span class="emoji">🛍️</span><p>Nenhum produto cadastrado ainda.</p></div>
-  </div>
+  <div class="section-header"><span class="section-title">⚡ Ofertas Selecionadas</span><div class="section-line"></div><span id="productCount" class="section-badge">0 produtos</span></div>
+  <div class="products-grid" id="productsGrid"></div>
 </div>
-
-<footer>
-  <div class="footer-social" id="footerSocial"></div>
-  <p>
-    <a href="#" onclick="openModal('privacidade');return false;">Política de Privacidade</a>
-    &nbsp;·&nbsp;
-    <a href="#" onclick="openModal('termos');return false;">Termos de Uso</a>
-  </p>
-  <p style="margin-top:8px;">
-    BuscaOfertas © 2026 — Links podem ser de afiliados<span id="secretDot"></span>
-  </p>
-</footer>
 
 <div class="overlay" id="loginOverlay">
-  <div class="login-box">
-    <div class="lock-icon">🔐</div>
-    <h2>Área Restrita</h2>
-    <p>Digite a senha de administrador para continuar.</p>
-    <div class="login-error" id="loginError">Senha incorreta. Tente novamente.</div>
-    <div class="form-group">
-      <input class="form-input" type="password" id="loginInput" placeholder="Senha"
-             onkeypress="if(event.key==='Enter')checkLogin()">
-    </div>
-    <button class="btn-save" onclick="checkLogin()">Entrar</button>
-    <button class="btn-secondary" style="width:100%;margin-top:10px" onclick="closeOverlay('loginOverlay')">Cancelar</button>
+  <div class="login-box" style="background:var(--bg3);padding:30px;border-radius:20px;text-align:center;">
+    <h2>🔐 Login Admin</h2>
+    <input class="form-input" type="password" id="loginInput" style="margin:20px 0;width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:#fff;">
+    <button class="btn-save" style="background:var(--accent);width:100%;color:#fff;" onclick="checkLogin()">Entrar</button>
   </div>
 </div>
 
 <div class="overlay" id="adminOverlay">
   <div class="admin-box">
-    <button class="admin-close" onclick="closeAdmin()">✕</button>
-    <div class="admin-title">👑 Painel Admin</div>
-    <div class="admin-tabs">
-      <button class="admin-tab active" onclick="switchTab('tabProduto',this)">📦 Produto</button>
-      <button class="admin-tab" onclick="switchTab('tabBusca',this)">🔍 Buscar</button>
-      <button class="admin-tab" onclick="switchTab('tabRobot',this)">🤖 Robô ML</button>
-      <button class="admin-tab" onclick="switchTab('tabConfig',this)">⚙ Config</button>
+    <button style="position:absolute;top:10px;right:10px;background:none;border:none;color:#fff;cursor:pointer;font-size:20px;" onclick="closeAdmin()">✕</button>
+    <h2 style="margin-bottom:20px;">🤖 Painel do Robô</h2>
+    
+    <div class="robot-status">
+      <div class="robot-dot" id="robotDot"></div> <span id="robotStatusText">Robô parado</span>
+      <div class="robot-log" id="robotLog" style="margin-top:10px;">Aguardando início...</div>
     </div>
 
-    <div class="tab-content active" id="tabProduto">
-      <div class="form-group">
-        <label class="form-label">Plataforma</label>
-        <div class="platform-tabs">
-          <button class="plat-tab active-ml" id="platML" onclick="selectPlatform('ml')">🛒 Mercado Livre</button>
-          <button class="plat-tab" id="platAmazon" onclick="selectPlatform('amazon')">📦 Amazon</button>
-          <button class="plat-tab" id="platShopee" onclick="selectPlatform('shopee')">🧡 Shopee</button>
-        </div>
-        <input type="hidden" id="fieldPlatform" value="ml">
+    <div class="robot-controls">
+      <div class="control-card"><label>📦 Produtos por busca</label>
+        <select id="robotQty"><option value="3">3 produtos</option><option value="5" selected>5 produtos</option><option value="10">10 produtos</option></select>
       </div>
-      <div class="form-group">
-        <label class="form-label">Nome do Produto *</label>
-        <input class="form-input" id="fieldName" placeholder="Ex: iPhone 15 Pro Max 256GB">
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Preço Atual *</label>
-          <input class="form-input" id="fieldPrice" placeholder="R$ 0,00" oninput="formatPrice(this)">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Preço Antigo (opcional)</label>
-          <input class="form-input" id="fieldOldPrice" placeholder="R$ 0,00" oninput="formatPrice(this)">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Categoria</label>
-        <select class="form-select" id="fieldCat">
-          <option value="outros">Outros</option>
-          <option value="celular">📱 Celular</option>
-          <option value="notebook">💻 Notebook</option>
-          <option value="tv">📺 TV</option>
-          <option value="cozinha">🍳 Cozinha</option>
-          <option value="casa">🏠 Casa</option>
-          <option value="esporte">🏋️ Esporte</option>
-          <option value="beleza">💄 Beleza</option>
-          <option value="games">🎮 Games</option>
-          <option value="moda">👗 Moda</option>
-          <option value="brinquedos">🧸 Brinquedos</button>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Imagem (URL)</label>
-        <input class="form-input" id="fieldImg" placeholder="https://...">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Link de Afiliado *</label>
-        <input class="form-input" id="fieldLink" placeholder="Seu link de afiliado aqui">
-      </div>
-      <button class="btn-save" id="btnSalvar" onclick="saveProduct()">✅ Salvar Produto</button>
-    </div>
-
-    <div class="tab-content" id="tabBusca">
-      <div class="search-tabs">
-        <button class="search-tab-btn act-ml" id="stbML" onclick="switchSearchTab('ml')">🛒 ML</button>
-        <button class="search-tab-btn" id="stbAmazon" onclick="switchSearchTab('amazon')">📦 Amazon</button>
-        <button class="search-tab-btn" id="stbShopee" onclick="switchSearchTab('shopee')">🧡 Shopee</button>
-      </div>
-
-      <div class="search-panel active" id="spML">
-        <div class="search-tip">💡 Busque no Mercado Livre, clique no resultado para preencher os campos. <strong>Substitua o link pelo seu link de afiliado antes de salvar!</strong></div>
-        <div class="ml-search-box">
-          <input class="form-input" id="mlQuery" placeholder="Ex: airfryer, tênis, notebook..." onkeypress="if(event.key==='Enter')searchML()">
-          <button class="btn-search" onclick="searchML()">🔍 Buscar</button>
-        </div>
-        <div id="mlResults" class="results-box"></div>
-        <div class="search-tip" style="margin-top:0">
-          ⚙️ <strong>Tag de afiliado ML:</strong> Adicione <code>?utm_source=afiliado&tag=SEU_ID</code> no final do link do produto.
-        </div>
-      </div>
-
-      <div class="search-panel" id="spAmazon">
-        <div class="search-tip">📦 <strong>Como funciona:</strong> Busque um produto — abrimos a amazon.com.br para você copiar o link e transformá-lo em link de afiliado. Cole o link abaixo e insira sua tag.</div>
-        <div class="ml-search-box">
-          <input class="form-input" id="amazonQuery" placeholder="Ex: airfryer, notebook, tênis..." onkeypress="if(event.key==='Enter')searchAmazon()">
-          <button class="btn-search" onclick="searchAmazon()">🔍 Buscar</button>
-        </div>
-        <div id="amazonResults" class="results-box"></div>
-        <div class="link-builder">
-          <div class="link-builder-title">🔗 Gerador de Link de Afiliado Amazon</div>
-          <div class="form-group">
-            <label class="form-label">Cole o link do produto Amazon</label>
-            <input class="form-input" id="amazonProductUrl" placeholder="https://www.amazon.com.br/dp/..." oninput="buildAmazonLink()">
-          </div>
-          <div class="affiliate-tag-row">
-            <span style="font-size:.82rem;color:var(--muted);white-space:nowrap">Tag de afiliado:</span>
-            <input class="tag-input" id="amazonTag" placeholder="seusite-20" oninput="buildAmazonLink();saveAmazonTag()">
-          </div>
-          <div style="display:flex;gap:8px;margin-top:8px;align-items:flex-start">
-            <div class="result-url-box" id="amazonAffLink">← Cole o link e insira sua tag acima</div>
-            <button class="btn-copy" onclick="copyText('amazonAffLink')">📋 Copiar</button>
-          </div>
-          <button class="btn-save" style="margin-top:12px" onclick="fillFromAmazonBuilder()">✅ Usar este link no cadastro</button>
-        </div>
-      </div>
-
-      <div class="search-panel" id="spShopee">
-        <div class="search-tip">🧡 <strong>Como funciona:</strong> Busque um produto para abrir a Shopee — copie o link e transforme em link de afiliado usando o <strong>Shopee Afiliados</strong>.</div>
-        <div class="ml-search-box">
-          <input class="form-input" id="shopeeQuery" placeholder="Ex: camiseta, fone bluetooth..." onkeypress="if(event.key==='Enter')searchShopee()">
-          <button class="btn-search" onclick="searchShopee()">🔍 Buscar</button>
-        </div>
-        <div id="shopeeResults" class="results-box"></div>
-        <div class="link-builder">
-          <div class="link-builder-title">🔗 Gerador de Link de Afiliado Shopee</div>
-          <div class="form-group">
-            <label class="form-label">Cole o link do produto Shopee</label>
-            <input class="form-input" id="shopeeProductUrl" placeholder="https://shopee.com.br/..." oninput="buildShopeeLink()">
-          </div>
-          <div class="affiliate-tag-row">
-            <span style="font-size:.82rem;color:var(--muted);white-space:nowrap">Seu ID afiliado:</span>
-            <input class="tag-input" id="shopeeTag" placeholder="SEU_ID_AFILIADO" oninput="buildShopeeLink();saveShopeeTag()">
-          </div>
-          <div style="display:flex;gap:8px;margin-top:8px;align-items:flex-start">
-            <div class="result-url-box" id="shopeeAffLink">← Cole o link e insira seu ID acima</div>
-            <button class="btn-copy" onclick="copyText('shopeeAffLink')">📋 Copiar</button>
-          </div>
-          <button class="btn-save" style="margin-top:12px" onclick="fillFromShopeeBuilder()">✅ Usar este link no cadastro</button>
-        </div>
-        <div style="text-align:center;margin-top:4px">
-          <a class="btn-open" href="https://affiliate.shopee.com.br" target="_blank">↗ Abrir Painel Afiliados Shopee</a>
-        </div>
+      <div class="control-card"><label>🏷 Categoria padrão</label>
+        <select id="robotCat"><option value="outros">Outros</option><option value="celular">📱 Celular</option><option value="notebook">💻 Notebook</option></select>
       </div>
     </div>
 
-    <div class="tab-content" id="tabRobot">
-      <div class="robot-status">
-        <div class="robot-status-header">
-          <div class="robot-label"><div class="robot-dot" id="robotDot"></div> <span id="robotStatusText">Robô parado</span></div>
-          <span class="info-chip" id="robotNextRun">—</span>
-        </div>
-        <div class="robot-info" id="robotInfo">Configure o robô abaixo e ative para buscar produtos automaticamente das tendências do Mercado Livre.</div>
-      </div>
-
-      <div class="robot-controls">
-        <div class="control-card">
-          <label>⏱ Intervalo de execução</label>
-          <select id="robotInterval">
-            <option value="3600000">A cada 1 hora</option>
-            <option value="10800000">A cada 3 horas</option>
-            <option value="21600000" selected>A cada 6 horas</option>
-            <option value="43200000">A cada 12 horas</option>
-            <option value="86400000">A cada 24 horas</option>
-          </select>
-        </div>
-        <div class="control-card">
-          <label>📦 Produtos por execução</label>
-          <select id="robotQty">
-            <option value="3">3 produtos</option>
-            <option value="5" selected>5 produtos</option>
-            <option value="10">10 produtos</option>
-            <option value="20">20 produtos (top 20)</option>
-          </select>
-        </div>
-        <div class="control-card">
-          <label>🏷 Categoria padrão</label>
-          <select id="robotCat">
-            <option value="outros">Outros</option>
-            <option value="celular">📱 Celular</option>
-            <option value="notebook">💻 Notebook</option>
-            <option value="tv">📺 TV</option>
-            <option value="cozinha">🍳 Cozinha</option>
-            <option value="casa">🏠 Casa</option>
-            <option value="esporte">🏋️ Esporte</option>
-            <option value="games">🎮 Games</option>
-          </select>
-        </div>
-        <div class="control-card">
-          <label>🔁 Skip duplicados</label>
-          <select id="robotSkipDup">
-            <option value="1" selected>Sim (recomendado)</option>
-            <option value="0">Não</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="robot-btn-row" style="margin-bottom:16px">
-        <button class="btn-green" id="btnRobotToggle" onclick="toggleRobot()">▶ Ativar Robô</button>
-        <button class="btn-secondary" onclick="runRobotNow()">⚡ Executar Agora</button>
-        <button class="btn-secondary" onclick="clearRobotLog()">🗑 Limpar Log</button>
-      </div>
-
-      <div class="form-label" style="margin-bottom:6px">📋 Log de execuções:</div>
-      <div class="robot-log" id="robotLog">
-        <span style="color:var(--muted)">Nenhuma execução ainda.</span>
-      </div>
-
-      <div class="divider"></div>
-      <div class="search-tip">⚠️ <strong>Atenção:</strong> O robô adiciona produtos com a flag <em>"⚠️ Trocar link afiliado"</em>. Lembre de substituir os links pelo seu link de afiliado ML antes de divulgar!</div>
+    <div style="margin-top:20px;">
+      <button class="btn-green" id="btnRobotToggle" onclick="toggleRobot()">▶ Ativar Robô</button>
+      <button class="btn-secondary" onclick="runRobotNow()">⚡ Executar Agora</button>
+      <button class="btn-secondary" onclick="clearRobotLog()">🗑 Limpar Log</button>
+      <button class="btn-secondary" style="color:#ff7c5e;" onclick="clearAll()">🗑 Apagar Produtos</button>
     </div>
-
-    <div class="tab-content" id="tabConfig">
-      <div class="form-group">
-        <label class="form-label">Banner (URL da imagem)</label>
-        <input class="form-input" id="configBanner" placeholder="https://...">
-        <button class="btn-secondary" style="margin-top:8px;width:100%" onclick="saveBanner()">Salvar Banner</button>
-      </div>
-      <div class="form-group" style="margin-top:16px">
-        <label class="form-label">Instagram</label>
-        <input class="form-input" id="configInsta" placeholder="https://instagram.com/seuperfil">
-      </div>
-      <div class="form-group">
-        <label class="form-label">TikTok</label>
-        <input class="form-input" id="configTiktok" placeholder="https://tiktok.com/@seuperfil">
-      </div>
-      <div class="form-group">
-        <label class="form-label">WhatsApp</label>
-        <input class="form-input" id="configWhats" placeholder="https://wa.me/55...">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Telegram</label>
-        <input class="form-input" id="configTelegram" placeholder="https://t.me/seucanal">
-      </div>
-      <button class="btn-save" onclick="saveSocial()" style="margin-bottom:20px">Salvar Redes Sociais</button>
-      <div class="admin-actions">
-        <button class="btn-secondary" onclick="generateDemo()">⚡ Produtos Demo</button>
-        <button class="btn-danger" onclick="clearAll()">🗑️ Limpar Tudo</button>
-      </div>
-      <div class="change-pw-section">
-        <p style="color:var(--muted);font-size:.82rem;margin-bottom:12px;">🔑 Alterar senha de acesso ao Admin</p>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Nova senha</label>
-            <input class="form-input" type="password" id="newPw" placeholder="Mínimo 6 caracteres">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Confirmar</label>
-            <input class="form-input" type="password" id="newPw2" placeholder="Repita a senha">
-          </div>
-        </div>
-        <button class="btn-secondary" style="width:100%" onclick="changePassword()">🔐 Alterar Senha</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="overlay" id="privacidade">
-  <div class="legal-box">
-    <button class="admin-close" onclick="closeOverlay('privacidade')">✕</button>
-    <h2>🔒 Política de Privacidade</h2>
-    <p class="legal-date">Última atualização: janeiro de 2026</p>
-    <h3>1. Sobre este documento</h3>
-    <p>Esta Política de Privacidade descreve como o <strong>BuscaOfertas</strong> trata as informações dos usuários.</p>
-    <div class="legal-highlight">ℹ️ O BuscaOfertas é um site de curadoria de ofertas e afiliados. Não realizamos vendas diretamente.</div>
-    <h3>2. Informações que coletamos</h3>
-    <ul>
-      <li>Dados de navegação (páginas visitadas, tempo de permanência)</li>
-      <li>Informações do dispositivo (navegador, sistema operacional)</li>
-      <li>Endereço IP de forma anonimizada</li>
-    </ul>
-    <h3>3. Cookies</h3>
-    <p>Utilizamos cookies essenciais, analíticos e de afiliados. Você pode desativar cookies nas configurações do seu navegador.</p>
-    <h3>4. Links de afiliados</h3>
-    <p>O BuscaOfertas participa dos programas de afiliados do <strong>Mercado Livre</strong>, <strong>Amazon</strong> e <strong>Shopee</strong>. Quando você clica em um link e realiza uma compra, podemos receber uma comissão <strong>sem nenhum custo adicional para você</strong>.</p>
-    <h3>5. Contato</h3>
-    <p>Em caso de dúvidas, entre em contato pelas nossas redes sociais.</p>
-  </div>
-</div>
-
-<div class="overlay" id="termos">
-  <div class="legal-box">
-    <button class="admin-close" onclick="closeOverlay('termos')">✕</button>
-    <h2>📋 Termos de Uso</h2>
-    <p class="legal-date">Última atualização: janeiro de 2026</p>
-    <h3>1. Aceitação dos termos</h3>
-    <p>Ao acessar e usar o <strong>BuscaOfertas</strong>, você concorda com estes Termos de Uso.</p>
-    <h3>2. Sobre o serviço</h3>
-    <p>O BuscaOfertas é um site de curadoria de ofertas afiliado ao Mercado Livre, Amazon e Shopee.</p>
-    <div class="legal-highlight">⚠️ O BuscaOfertas não é uma loja virtual. A relação de compra é exclusivamente entre o usuário e a plataforma parceira.</div>
-    <h3>3. Links de afiliados</h3>
-    <p>Os links podem gerar comissão para nós sem nenhum custo adicional para você.</p>
-    <h3>4. Lei aplicável</h3>
-    <p>Estes termos são regidos pelas leis do Brasil. Disputas serão resolvidas no foro de São Paulo — SP.</p>
   </div>
 </div>
 
@@ -594,256 +144,146 @@
 
 <script>
 let products = JSON.parse(localStorage.getItem('bo_products')||'[]');
-let config   = JSON.parse(localStorage.getItem('bo_config')||'{}');
-let currentCat = 'todos';
-let isAdmin = false;
-let editingId = null;
-let robotTimer = null;
+let trendKeywords = [];
 let robotRunning = false;
-let robotLog = JSON.parse(localStorage.getItem('bo_robot_log')||'[]');
+let robotTimer = null;
+let isAdmin = false;
 
-const DEFAULT_PW = 'Busca@2026';
-function getPW(){ return localStorage.getItem('bo_pw') || DEFAULT_PW; }
-
+// LOGIN SECRETO: CLIQUE 5 VEZES NO LOGO
 let lClicks=0, lTimer;
 document.getElementById('logoBtn').addEventListener('click',()=>{
   lClicks++; clearTimeout(lTimer);
   lTimer=setTimeout(()=>lClicks=0,2000);
-  if(lClicks>=5){ lClicks=0; openLogin(); }
+  if(lClicks>=5){ lClicks=0; document.getElementById('loginOverlay').classList.add('open'); }
 });
-document.getElementById('secretDot').addEventListener('click', openLogin);
 
-function openLogin(){
-  document.getElementById('loginInput').value='';
-  document.getElementById('loginError').style.display='none';
-  document.getElementById('loginOverlay').classList.add('open');
-  document.body.style.overflow='hidden';
-  setTimeout(()=>document.getElementById('loginInput').focus(),150);
-}
 function checkLogin(){
-  if(document.getElementById('loginInput').value === getPW()){
-    closeOverlay('loginOverlay');
+  if(document.getElementById('loginInput').value === 'Busca@2026'){
+    document.getElementById('loginOverlay').classList.remove('open');
     openAdmin();
-  } else {
-    document.getElementById('loginError').style.display='block';
-    document.getElementById('loginInput').value='';
-  }
-}
-function changePassword(){
-  const p1=document.getElementById('newPw').value;
-  const p2=document.getElementById('newPw2').value;
-  if(!p1||p1.length<6){ toast('⚠️ Senha precisa ter ao menos 6 caracteres.'); return; }
-  if(p1!==p2){ toast('⚠️ As senhas não coincidem!'); return; }
-  localStorage.setItem('bo_pw',p1);
-  document.getElementById('newPw').value='';
-  document.getElementById('newPw2').value='';
-  toast('🔐 Senha alterada com sucesso!');
+  } else { alert('Senha incorreta!'); }
 }
 
-function openAdmin(){
-  isAdmin=true;
-  document.body.classList.add('admin-mode');
-  applyConfig();
-  renderProducts();
-  renderRobotLog();
-  const atag = localStorage.getItem('bo_amazon_tag')||'';
-  const stag = localStorage.getItem('bo_shopee_tag')||'';
-  if(atag) document.getElementById('amazonTag').value = atag;
-  if(stag) document.getElementById('shopeeTag').value = stag;
-  document.getElementById('adminOverlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeAdmin(){ isAdmin=false; document.body.classList.remove('admin-mode'); renderProducts(); closeOverlay('adminOverlay'); }
-function closeOverlay(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
-function openModal(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
-document.querySelectorAll('.overlay').forEach(o=>{ o.addEventListener('click',function(e){ if(e.target===this) closeOverlay(this.id); }); });
-
-function switchTab(id,btn){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-}
-function switchTabByName(id){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  const tabs = ['tabProduto','tabBusca','tabRobot','tabConfig'];
-  const idx = tabs.indexOf(id);
-  if(idx>=0) document.querySelectorAll('.admin-tab')[idx].classList.add('active');
-}
-
-function applyConfig(){
-  if(config.banner) document.getElementById('heroBanner').src=config.banner;
-  const sc=[];
-  if(config.insta) sc.push({icon:'📸',label:'Instagram',url:config.insta});
-  if(config.tiktok) sc.push({icon:'🎵',label:'TikTok',url:config.tiktok});
-  if(config.whats) sc.push({icon:'💬',label:'WhatsApp',url:config.whats});
-  if(config.telegram) sc.push({icon:'✈️',label:'Telegram',url:config.telegram});
-  document.getElementById('socialHeader').innerHTML=sc.map(s=>`<a href="${s.url}" target="_blank" title="${s.label}">${s.icon}</a>`).join('');
-  document.getElementById('footerSocial').innerHTML=sc.map(s=>`<a href="${s.url}" target="_blank">${s.icon} ${s.label}</a>`).join('');
-  if(config.banner) document.getElementById('configBanner').value=config.banner;
-  if(config.insta) document.getElementById('configInsta').value=config.insta;
-  if(config.tiktok) document.getElementById('configTiktok').value=config.tiktok;
-  if(config.whats) document.getElementById('configWhats').value=config.whats;
-  if(config.telegram) document.getElementById('configTelegram').value=config.telegram;
-}
-function saveBanner(){ const u=document.getElementById('configBanner').value.trim(); if(!u) return; config.banner=u; localStorage.setItem('bo_config',JSON.stringify(config)); document.getElementById('heroBanner').src=u; toast('Banner atualizado!'); }
-function saveSocial(){ config.insta=document.getElementById('configInsta').value.trim(); config.tiktok=document.getElementById('configTiktok').value.trim(); config.whats=document.getElementById('configWhats').value.trim(); config.telegram=document.getElementById('configTelegram').value.trim(); localStorage.setItem('bo_config',JSON.stringify(config)); applyConfig(); toast('Redes sociais salvas!'); }
-
-function renderProducts(){
-  const grid=document.getElementById('productsGrid');
-  const list=currentCat==='todos'?products:products.filter(p=>p.cat===currentCat);
-  document.getElementById('productCount').textContent=`${list.length} produto${list.length!==1?'s':''}`;
-  if(!list.length){ grid.innerHTML=`<div class="empty-state"><span class="emoji">🛍️</span><p>Nenhum produto nesta categoria.</p></div>`; return; }
-  grid.innerHTML=list.map((p,i)=>{
-    const disc=p.oldPrice?Math.round((1-p.price/p.oldPrice)*100):0;
-    const pl=p.platform==='ml'?'🛒 ML':p.platform==='amazon'?'📦 Amazon':'🧡 Shopee';
-    const adm=isAdmin?`<div class="product-admin-btns"><button class="btn-edit" onclick="editProduct('${p.id}',event)">✏️ Editar</button><button class="btn-del" onclick="deleteProduct('${p.id}',event)">🗑️ Excluir</button></div>`:'';
-    const pendBadge=isAdmin&&p.pendingLink?`<div class="pending-badge">⚠️ Trocar link afiliado</div>`:'';
-    return `<div class="product-card" style="animation-delay:${i*.04}s">
-      ${disc>5?`<div class="product-discount">-${disc}%</div>`:''}
-      ${pendBadge}
-      <img class="product-img" src="${p.img||'https://picsum.photos/300/300?random='+p.id}" alt="${p.name}" onerror="this.src='https://picsum.photos/300/300?grayscale'" loading="lazy">
-      <div class="product-body">
-        <div class="product-platform platform-${p.platform}">${pl}</div>
-        <div class="product-name">${p.name}</div>
-        <div class="product-price">${p.oldPrice?`<span class="old-price">${fBRL(p.oldPrice)}</span>`:''}${fBRL(p.price)}</div>
-        <a class="btn-buy" href="${p.link}" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
-        ${adm}
-      </div></div>`;
-  }).join('');
-}
-
-function filterCat(cat,btn){ currentCat=cat; document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); renderProducts(); }
-function saveProduct(){
-  const name=document.getElementById('fieldName').value.trim();
-  const pr=document.getElementById('fieldPrice').value.replace(/[^\d,]/g,'').replace(',','.');
-  const or=document.getElementById('fieldOldPrice').value.replace(/[^\d,]/g,'').replace(',','.');
-  const link=document.getElementById('fieldLink').value.trim();
-  if(!name||!pr||!link){ toast('⚠️ Preencha nome, preço e link!'); return; }
-  const prod={id:editingId||Date.now().toString(),name,price:parseFloat(pr),oldPrice:or?parseFloat(or):null,img:document.getElementById('fieldImg').value.trim(),link,cat:document.getElementById('fieldCat').value,platform:document.getElementById('fieldPlatform').value,pendingLink:false};
-  if(editingId){ products=products.map(p=>p.id===editingId?prod:p); editingId=null; document.getElementById('btnSalvar').textContent='✅ Salvar Produto'; toast('Produto atualizado!'); }
-  else{ products.unshift(prod); toast('Produto adicionado!'); }
-  localStorage.setItem('bo_products',JSON.stringify(products)); clearForm(); renderProducts(); closeAdmin();
-}
-function editProduct(id,e){ e.stopPropagation(); const p=products.find(x=>x.id===id); if(!p) return; editingId=id; openAdmin(); switchTabByName('tabProduto'); selectPlatform(p.platform); document.getElementById('fieldName').value=p.name; document.getElementById('fieldPrice').value=fBRL(p.price); document.getElementById('fieldOldPrice').value=p.oldPrice?fBRL(p.price):''; document.getElementById('fieldImg').value=p.img||''; document.getElementById('fieldLink').value=p.link; document.getElementById('fieldCat').value=p.cat; document.getElementById('btnSalvar').textContent='✏️ Atualizar Produto'; }
-function deleteProduct(id,e){ e.stopPropagation(); if(!confirm('Excluir este produto?')) return; products=products.filter(p=>p.id!==id); localStorage.setItem('bo_products',JSON.stringify(products)); renderProducts(); toast('Produto excluído!'); }
-function clearAll(){ if(!confirm('Limpar TODOS os produtos?')) return; products=[]; localStorage.setItem('bo_products',JSON.stringify(products)); renderProducts(); toast('Limpo!'); closeAdmin(); }
-function clearForm(){ ['fieldName','fieldPrice','fieldOldPrice','fieldImg','fieldLink'].forEach(id=>document.getElementById(id).value=''); document.getElementById('fieldCat').value='outros'; editingId=null; }
+function openAdmin(){ isAdmin=true; document.getElementById('adminOverlay').classList.add('open'); renderRobotLog(); }
+function closeAdmin(){ document.getElementById('adminOverlay').classList.remove('open'); }
 
 async function fetchML(url){
-  const u = new URL(url);
-  const proxied = '/api/ml?endpoint=' + u.pathname.replace(/^\//,'') + '&' + u.searchParams.toString();
   try {
-    const r = await fetch(proxied, { signal: AbortSignal.timeout(15000) });
+    const u = new URL(url);
+    const endpoint = u.pathname.replace(/^\//,'');
+    const params = u.searchParams.toString();
+    const proxyUrl = `/api/ml?endpoint=${endpoint}&${params}`;
+    const r = await fetch(proxyUrl);
     return await r.json();
-  } catch(e) { throw e; }
-}
-
-async function searchML(){
-  const q=document.getElementById('mlQuery').value.trim(); if(!q) return;
-  const box=document.getElementById('mlResults'); box.style.display='block';
-  box.innerHTML='<div style="padding:16px;text-align:center;color:var(--muted)" class="loading-pulse">Buscando...</div>';
-  try{
-    const data=await fetchML(`https://api.mercadolibre.com/sites/MLB/search?q=${encodeURIComponent(q)}&limit=15`);
-    if(!data.results?.length){ box.innerHTML='<div style="padding:16px;text-align:center;color:var(--muted)">Nenhum resultado</div>'; return; }
-    box.innerHTML=data.results.map(r=>{
-      return `<div class="result-item" onclick="fillFromML('${r.title.replace(/'/g,"\\'")}',${r.price},${r.original_price||'null'},'${r.thumbnail}','${r.permalink}')">
-        <img src="${r.thumbnail}">
-        <div class="result-info"><div class="result-name">${r.title}</div><div class="result-price">${fBRL(r.price)}</div></div>
-      </div>`;
-    }).join('');
-  }catch{ box.innerHTML='<div style="padding:16px;text-align:center;color:#ff7c5e">Erro na busca.</div>'; }
-}
-function fillFromML(t,p,op,img,link){
-  switchTabByName('tabProduto'); selectPlatform('ml');
-  document.getElementById('fieldName').value=t; document.getElementById('fieldPrice').value=fBRL(p);
-  if(op) document.getElementById('fieldOldPrice').value=fBRL(op);
-  document.getElementById('fieldImg').value=img.replace('I.jpg','O.jpg');
-  document.getElementById('fieldLink').value=link;
-  document.getElementById('mlResults').style.display='none';
+  } catch(e) { console.error(e); return null; }
 }
 
 async function loadTrends(){
-  const grid=document.getElementById('trendsGrid');
-  grid.innerHTML='<div class="trend-loading">Carregando tendências...</div>';
-  try{
-    const data=await fetchML('https://api.mercadolibre.com/trends/MLB');
-    trendKeywords = (Array.isArray(data)?data:[]).map(d=>d.keyword||d).slice(0,20);
-    grid.innerHTML=trendKeywords.map((kw,i)=>buildTrendCard(kw,i)).join('');
-  }catch{
-    grid.innerHTML='<div class="trend-loading">Erro ao carregar tendências.</div>';
+  const grid = document.getElementById('trendsGrid');
+  grid.innerHTML = '<p style="color:var(--muted)">Carregando tendências...</p>';
+  const data = await fetchML('https://api.mercadolibre.com/trends/MLB');
+  if(data && Array.isArray(data)){
+    trendKeywords = data.map(d => d.keyword || d).slice(0, 20);
+    grid.innerHTML = trendKeywords.map((kw, i) => `
+      <div class="trend-card">
+        <div class="trend-num">${i+1}</div>
+        <div class="trend-name">${kw}</div>
+      </div>`).join('');
   }
-}
-function buildTrendCard(kw,i){
-  return `<div class="trend-card" onclick="if(isAdmin)quickAddFromTrend('${kw.replace(/'/g,"\\'")}',this)">
-    <div class="trend-num">${i+1}</div><div class="trend-name">${kw}</div>
-    <button class="trend-add-btn" onclick="event.stopPropagation();quickAddFromTrend('${kw.replace(/'/g,"\\'")}',this)">+</button>
-  </div>`;
 }
 
 async function runRobotNow(){
-  if(!isAdmin) return;
-  setRobotStatus(robotRunning, true);
-  addRobotLog('Iniciando busca automática...', 'ok');
+  setRobotStatus(true, true);
+  addRobotLog('Iniciando busca real no Mercado Livre...', 'ok');
+  
   const qty = parseInt(document.getElementById('robotQty').value);
   const cat = document.getElementById('robotCat').value;
-  const skipDup = document.getElementById('robotSkipDup').value === '1';
-
-  let keywords = trendKeywords.length ? trendKeywords.slice(0, qty) : ['celular','notebook','airfryer'].slice(0,qty);
-  let added=0, errors=0;
-
+  
+  // Se não carregou as tendências, usa uma lista de segurança
+  const keywords = trendKeywords.length ? trendKeywords.slice(0, qty) : ['iphone','notebook','fone bluetooth'].slice(0, qty);
+  
+  let added = 0;
   for(const kw of keywords){
-    try{
-      const data = await fetchML(`https://api.mercadolibre.com/sites/MLB/search?q=${encodeURIComponent(kw)}&limit=5`);
-      const r = data.results?.[0];
-      if(r){
-        products.unshift({id:Date.now().toString(36)+Math.random().toString(36).substr(2,5), name:r.title, price:r.price, oldPrice:r.original_price, img:r.thumbnail.replace('I.jpg','O.jpg'), link:r.permalink, cat, platform:'ml', pendingLink:true});
-        added++; addRobotLog('Adicionado: '+r.title.substr(0,30)+'...','ok');
-      }
-    }catch(e){ errors++; addRobotLog('Erro ao buscar '+kw,'err'); }
+    addRobotLog(`Buscando por: "${kw}"...`);
+    const data = await fetchML(`https://api.mercadolibre.com/sites/MLB/search?q=${encodeURIComponent(kw)}&limit=1`);
+    
+    if(data && data.results && data.results[0]){
+      const r = data.results[0];
+      const prod = {
+        id: Date.now() + Math.random(),
+        name: r.title,
+        price: r.price,
+        img: r.thumbnail.replace('I.jpg', 'O.jpg'),
+        link: r.permalink,
+        platform: 'ml',
+        cat: cat
+      };
+      products.unshift(prod);
+      added++;
+      addRobotLog(`✅ Sucesso: ${r.title.substring(0,25)}...`, 'ok');
+    } else {
+      addRobotLog(`❌ Nada encontrado para: ${kw}`, 'err');
+    }
+    await new Promise(r => setTimeout(r, 1000)); // Espera 1 seg entre buscas
   }
+
   localStorage.setItem('bo_products', JSON.stringify(products));
-  renderProducts(); setRobotStatus(robotRunning, false);
-  addRobotLog(`Fim: ${added} adicionados, ${errors} erros.`,'ok');
+  renderProducts();
+  setRobotStatus(robotRunning, false);
+  toast(`${added} produtos adicionados!`);
 }
 
 function toggleRobot(){
-  robotRunning = !robotRunning; setRobotStatus(robotRunning);
-  if(robotRunning) { 
-    runRobotNow(); 
-    robotTimer = setInterval(runRobotNow, parseInt(document.getElementById('robotInterval').value));
-  } else { clearInterval(robotTimer); }
+  robotRunning = !robotRunning;
+  setRobotStatus(robotRunning);
+  if(robotRunning){
+    runRobotNow();
+    robotTimer = setInterval(runRobotNow, 3600000); // 1 hora
+  } else {
+    clearInterval(robotTimer);
+  }
 }
 
 function setRobotStatus(on, busy){
-  document.getElementById('robotDot').className = 'robot-dot'+(on?(busy?' busy':' on'):'');
-  document.getElementById('robotStatusText').textContent = on ? (busy?'Executando...':'Ativo') : 'Parado';
-  document.getElementById('btnRobotToggle').textContent = on ? '⏹ Parar Robô' : '▶ Ativar Robô';
+  const dot = document.getElementById('robotDot');
+  dot.className = 'robot-dot' + (on ? (busy ? ' busy' : ' on') : '');
+  document.getElementById('robotStatusText').textContent = on ? (busy ? 'Buscando agora...' : 'Ativado (Aguardando)') : 'Robô parado';
 }
-function addRobotLog(m,t){ 
-  const now = new Date().toLocaleTimeString();
-  robotLog.unshift({msg:m, type:t, time:now});
-  if(robotLog.length>20) robotLog.pop();
-  localStorage.setItem('bo_robot_log', JSON.stringify(robotLog));
-  renderRobotLog();
-}
-function renderRobotLog(){
-  const el = document.getElementById('robotLog');
-  el.innerHTML = robotLog.map(l=>`<div class="log-${l.type}">[${l.time}] ${l.msg}</div>`).join('');
-}
-function clearRobotLog(){ robotLog=[]; renderRobotLog(); }
 
-function selectPlatform(p){
-  document.getElementById('fieldPlatform').value=p;
-  ['ml','amazon','shopee'].forEach(x=>document.getElementById('plat'+x.charAt(0).toUpperCase()+x.slice(1)).className='plat-tab'+(p===x?' active-'+x:''));
+function addRobotLog(msg, type){
+  const log = document.getElementById('robotLog');
+  const time = new Date().toLocaleTimeString();
+  const div = document.createElement('div');
+  if(type === 'ok') div.style.color = 'var(--green)';
+  if(type === 'err') div.style.color = '#ff7c5e';
+  div.textContent = `[${time}] ${msg}`;
+  log.prepend(div);
 }
-function fBRL(v){ return 'R$ '+parseFloat(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2}); }
-function formatPrice(el){ let v=el.value.replace(/\D/g,''); el.value=fBRL(v/100); }
-function toast(m){ const e=document.getElementById('toast'); e.textContent=m; e.style.display='block'; setTimeout(()=>e.style.display='none',3000); }
 
-document.addEventListener('DOMContentLoaded',()=>{ applyConfig(); renderProducts(); loadTrends(); renderRobotLog(); });
+function renderProducts(){
+  const grid = document.getElementById('productsGrid');
+  document.getElementById('productCount').textContent = `${products.length} produtos`;
+  if(!products.length){
+    grid.innerHTML = '<p style="padding:40px;text-align:center;color:var(--muted);grid-column:1/-1;">Nenhum produto cadastrado.</p>';
+    return;
+  }
+  grid.innerHTML = products.map(p => `
+    <div class="product-card">
+      <img class="product-img" src="${p.img}">
+      <div class="product-body">
+        <div class="product-platform platform-ml">🛒 Mercado Livre</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-price">R$ ${p.price.toLocaleString('pt-BR', {minimumFractionDigits:2})}</div>
+        <a class="btn-buy" href="${p.link}" target="_blank">Ver Oferta →</a>
+      </div>
+    </div>`).join('');
+}
+
+function clearAll(){ if(confirm('Apagar tudo?')){ products=[]; localStorage.setItem('bo_products','[]'); renderProducts(); } }
+function clearRobotLog(){ document.getElementById('robotLog').innerHTML = ''; }
+function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; setTimeout(()=>t.style.display='none',3000); }
+
+document.addEventListener('DOMContentLoaded', ()=>{ loadTrends(); renderProducts(); });
 </script>
 </body>
 </html>
