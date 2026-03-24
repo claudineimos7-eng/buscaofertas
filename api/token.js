@@ -27,7 +27,7 @@ export default async function handler(req) {
     const d = await r.json();
     if (!d.access_token) throw new Error('no token');
     _token = d.access_token;
-    _tokenExpiry = Date.now() + ((d.expires_in || 21600) - 300) * 1000;
+    _tokenExpiry = Date.now() + ((d.expires_in || 21600) - 301) * 1000;
     return new Response(JSON.stringify({ access_token: _token }), { headers });
   } catch(e) {
     return new Response(JSON.stringify({ access_token: null, error: e.message }), { headers });
